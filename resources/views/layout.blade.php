@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#00f163">
-    <title>Tech Wolves | Index</title>
+    <title>Tech Wolves - @yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('images/logo-head.png') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('images/logo-head.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
@@ -16,7 +16,7 @@
     <div class="nav-holder">
         <div class="nav clearfix">
             <div class="logo float-left">
-                <a href="#">
+                <a href="{{ url('/') }}">
                     <img src="images/logo.png" alt="Project's Logo">
                 </a>
             </div>
@@ -29,18 +29,21 @@
     </div>
     <div class="nav-lists">
         <ul>
-            <li class="fas fa-home"><a href="">Home</a></li>
-            <li class="fas fa-address-card"><a href="">About</a></li>
+            <li class="fas fa-home"><a href="{{ url('/') }}">Home</a></li>
+            <li class="fas fa-address-card"><a href="{{ url('/about') }}">About</a></li>
             <li class="fas fa-phone-alt"><a href="">Contact</a></li>
             <li class="fas fa-map-marked-alt"><a href="">Maps</a></li>
             <li class="fas fa-question"><a href="">FAQs</a></li>
+            <li class="far fa-user-circle"><a href="{{ url('/login') }}">Login</a></li>
+            <li class="fas fa-user-plus"><a href="{{ url('/registration') }}">Register</a></li>
         </ul>
     </div>
 
-    @yield('containerr')
-    @yield('aboutUs')
-    @yield('slider')
-    @yield('lastContent')
+    {{--  Dynamic Section Begins  --}}
+
+    @yield('main-section')
+
+    {{--    Dynamic Section Ends --}}
 
     <div class="footer-holder">
         <div class="footer-info container py-sm-3 text-danger">

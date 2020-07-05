@@ -1,6 +1,6 @@
 @extends('layout')
-
-@section('containerr')
+@section('title', 'Home')
+@section('main-section')
     <div class="containerr">
         <div class="message-holder">
             <div class="message-button-holder">
@@ -15,9 +15,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('aboutUs')
     <div class="section-holder">
         <div class="section">
             <div class="container what-we-do text-center p-4">
@@ -27,9 +25,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('slider')
     <div id="carouselExampleIndicators" class="container carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -71,9 +67,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-@endsection
 
-@section('lastContent')
     <div class="last-content py-5">
         <div class="container py-md-3 text-center">
             <div class="last-lavi-inner-content px-lg-5">
