@@ -5,7 +5,7 @@ function showMenu(){
     let line2 = document.querySelector(".line-2");
     let line3 = document.querySelector(".line-3");
     let menus = document.querySelector(".nav-lists");
-    
+
     if(showStatus === false){
         line1.style.transform = "translate(0px, 12px) rotateZ(45deg)";
         line2.style.opacity = "0";
@@ -18,5 +18,5 @@ function showMenu(){
         line3.style.transform = "translate(0px, 0px) rotateZ(0deg)";
         menus.style.top = "-100%";
         showStatus = false;
-    }  
+    }
 }

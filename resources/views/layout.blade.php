@@ -55,9 +55,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-6 mb-md-0 mb-sm-5 mb-4">
                     <h4 class="mb-4">Address Info</h4>
-                    <p><span class="fa mr-2 fa-map-marker"></span>Satdobato, <span>Lalitpur, NP.</span></p>
-                    <p class="phone py-2"><span class="fa mr-2 fa-phone" style="transform: rotateZ(180deg);"></span> +977-9843324021 </p>
-                    <p><span class="fa mr-2 fa-envelope"></span><a href="mailto:devish@devish.com.np">contacts@techwolves.com</a></p>
+                    <p><span class="footer-icon fa mr-2 fa-map-marker"></span>Satdobato, <span>Lalitpur, NP.</span></p>
+                    <p class="phone py-2"><span class="footer-icon fa mr-2 fa-phone" style="transform: rotateZ(180deg);"></span> +977-9843324021 </p>
+                    <p><span class="footer-icon fa mr-2 fa-envelope"></span><a href="mailto:devish@devish.com.np">contacts@techwolves.com</a></p>
                 </div>
                 <div class="col-lg-2 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
                     <h4 class="mb-4">Quick Links</h4>
@@ -77,16 +77,16 @@
                     </form>
                     <div class="icon-social mt-4">
                         <a href="https://www.facebook.com" target="_blank">
-                            <i class="mx-2 fab fa-facebook-f"></i>
+                            <i class="mx-2 fab fa-facebook-f fb"></i>
                         </a>
                         <a href="https://www.twitter.com" target="_blank">
-                            <i class="mx-2 fab fa-twitter"></i>
+                            <i class="mx-2 fab fa-twitter tw"></i>
                         </a>
                         <a href="https://www.youtube.com" target="_blank">
-                            <i class="mx-2 fab fa-youtube"></i>
+                            <i class="mx-2 fab fa-youtube yt"></i>
                         </a>
                         <a href="https://www.instagram.com" target="_blank">
-                            <i class="mx-2 fab fa-instagram"></i>
+                            <i class="mx-2 fab fa-instagram ig"></i>
                         </a>
 
                     </div>

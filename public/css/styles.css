@@ -218,6 +218,7 @@ a:hover{
     background-image: url(../images/footer.jpg);
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 .footer{
@@ -262,6 +263,29 @@ form.d-flex.newsletter-w3pvt {
     font-weight: bold;
     text-shadow: -2px 2px 2px #b5acac;
     letter-spacing: 1px;
+}
+.footer-holder .footer-icon{
+    text-shadow: none;
+}
+.icon-social i{
+    color: #fff !important;
+    transition: all 0.2s ease;
+}
+.icon-social i:hover{
+    color: #0652a7 !important;
+    font-size: 20px;
+}
+.icon-social .fb:hover{
+    color: #2d88ff !important;
+}
+.icon-social .tw:hover{
+    color: #87cefa !important;
+}
+.icon-social .yt:hover{
+    color: #de521e !important;
+}
+.icon-social .ig:hover{
+    color: #f08080 !important;
 }
 /* Footer Section End */
 
