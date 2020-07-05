@@ -212,7 +212,6 @@ a:hover{
 .last-content.py-5 {
     background-color: #ddd;
 }
-
 /* Footer Section Start */
 .footer-holder{
     text-align: center;
@@ -265,3 +264,28 @@ form.d-flex.newsletter-w3pvt {
     letter-spacing: 1px;
 }
 /* Footer Section End */
+
+
+/* REgistration Page Begins */
+.inner-register{
+    background: url(../images/footer.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+}
+.overlay-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    min-height: 15em;
+    background: rgba(0, 0, 0, 0.44);
+}
+.overlay-inner h3{
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-shadow: -4px 1px 3px #000000;
+}
+/* REgistration page ends*/
