@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="hireButton">
-                <a href="https://devish.com.np/" target="_blank">Login!</a>
+                <a href="{{ url('/login') }}" target="">Login!</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <div class="container what-we-do text-center p-4">
                 <h3 class="text-center">About Us</h3>
                 <p class="p-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima alias perferendis, aliquam ab maxime ipsa natus fuga exercitationem, dolorem nostrum assumenda enim soluta nesciunt reiciendis quis, dicta quod beatae quibusdam. Lorem ipsum dolor sit amet... </p>
-                <a class="custom-btn btn-primary" href="#">Read More &raquo;</a>
+                <a class="custom-btn btn-primary" href="{{ url('/about') }}">Read More &raquo;</a>
             </div>
         </div>
     </div>
@@ -74,8 +74,8 @@
                 <h3 class="mb-4 tittle-wthree">Get started with <span>Online </span> Ordering !</h3>
                 <p class="px-lg-5">You are only few steps away from getting close to us. <br>If you haven't registerd yet, what are you waiting for... Just simply register and order our products online <br> -- Tech Wolves --</p>
                 <div class="buttons mt-md-4 mt-3">
-                    <a href="#" class="custom-btn"  style="color: #fff !important;">Login</a>
-                    <a href="#" class="custom-btn"  style="color: #fff !important;">Register</a>
+                    <a href="{{ url('/login') }}" class="custom-btn"  style="color: #fff !important;">Login</a>
+                    <a href="{{ url('/registration') }}" class="custom-btn"  style="color: #fff !important;">Register</a>
                 </div>
             </div>
         </div>

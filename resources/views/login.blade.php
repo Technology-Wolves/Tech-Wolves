@@ -1,9 +1,9 @@
 @extends('layout')
-@section('title', 'Registration')
+@section('title', 'Login')
 @section('main-section')
     <div class="inner-register">
         <div class="overlay-inner">
-            <h3 class="tittle-wthree text-center">Registration</h3>
+            <h3 class="tittle-wthree text-center">Login</h3>
         </div>
     </div>
     <div class="about py-5">
