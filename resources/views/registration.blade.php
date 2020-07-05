@@ -14,7 +14,7 @@
                 <div class="col-lg-6 contact-right-wthree-info login">
                     <h5 class="text-center mb-4"></h5>
 
-                    <form action="#" method="POST" name="registration">
+                    <form action="#" method="POST" name="registrationForm">
                         @csrf
                         <div class="form-group mt-4">
                             <label><i class="fas fa-file-signature"></i> Full Name</label>
@@ -27,8 +27,8 @@
                         </div>
 
                         <div class="form-group mt-4">
-                            <label><i class="fas fa-mobile-alt"></i> Telephone</label>
-                            <input type="text" class="form-control" name="telephone" placeholder="" required>
+                            <label><i class="fas fa-mobile-alt"></i> Phone</label>
+                            <input type="text" class="form-control" name="telephone" maxlength="10" placeholder="" required>
                         </div>
 
                         <div class="form-group mt-4">
@@ -38,8 +38,8 @@
 
                         <div class="form-group mt-4">
                             <label><i class="fas fa-transgender-alt"></i> Gender: </label>
-                            <select class="custom-select">
-                                <option selected>Select Gender</option>
+                            <select class="custom-select" name="gender" required>
+                                <option selected value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="others">Others</option>
@@ -58,19 +58,19 @@
 
                         <div class="form-group mt-4">
                             <label><i class="fas fa-filter"></i> Registration Type: </label>
-                            <select class="custom-select">
-                                <option selected>Select Registration Type</option>
+                            <select class="custom-select" name="registrationType" required>
+                                <option selected value="">Select Registration Type</option>
                                 <option value="Seller">Seller</option>
                                 <option value="buyer">Buyer</option>
                             </select>
                         </div>
 
                         <div class="form-group mt-4 mb-4 custom-file">
-                            <input type="file" class="custom-file-input" id="profileImage">
-                            <label class="custom-file-label" for="profileImage" name="profileImage"><i class="fas fa-unlock-alt"></i> Choose Profile Image</label>
+                            <label for="profileImage" ><i class="fas fa-unlock-alt"></i> Choose Profile Image</label><br>
+                            <input class="mb-4" type="file" id="profileImage" name="profileImage">
                         </div>
 
-                        <button type="submit" class="btn btn-primary submit mb-4" name="registration" onclick="return registrationValidation()">Submit </button>
+                        <button type="submit" class="btn btn-primary submit mt-4" name="registration" onclick="return registrationValidation()">Submit </button>
 
                     </form>
 
