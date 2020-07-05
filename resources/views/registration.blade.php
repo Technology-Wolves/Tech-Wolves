@@ -8,7 +8,8 @@
     </div>
     <div class="about py-5">
         <div class="container py-md-5">
-            <p class="sub-tittle text-center mt-4 mb-sm-5 mb-4">Wow, New user... Please fill up the given form clearly for registering at your first try... <br> 😊😊😊</p>
+            <h3 class="tittle-wthree text-center">Registration</h3>
+            <p class="sub-tittle text-center mt-4 mb-sm-5 mb-4">Please fill up the given form clearly for registering at your first try... <br> 😊😊😊</p>
             <div class="row">
                 <div class="col-lg-3 contact-info-left"></div>
                 <div class="col-lg-6 contact-right-wthree-info login">

@@ -313,3 +313,28 @@ form.d-flex.newsletter-w3pvt {
     text-shadow: -4px 1px 3px #000000;
 }
 /* REgistration page ends*/
+
+
+/* About Section Begins */
+.services{
+    background: #f7f7f7 !important;
+}
+.services p {
+    font-size: 1em;
+    color: #777;
+    line-height: 1.9em;
+    letter-spacing: 1px;
+}
+.services .icon {
+    font-size: 30px;
+}
+.ser-w3pvt-gd-wthree:nth-child(1) {
+    border-left: 0;
+}
+.ser-w3pvt-gd-wthree {
+    padding: 3em 3em;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 0;
+    border-right: 0;
+}
+/* About Section Ends */
