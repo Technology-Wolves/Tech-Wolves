@@ -21,10 +21,6 @@ Route::get('/registration', function () {
     return view('registration');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/about', function () {
     return view('about');
 });
@@ -32,3 +28,15 @@ Route::get('/about', function () {
 Route::get('/contacts', function () {
     return view('contacts');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
