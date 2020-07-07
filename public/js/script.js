@@ -118,3 +118,59 @@ function loginValidation()
 }
 // Login Validation Ends
 
+// Contafct Form Validation begins
+function contactValidation(){
+
+    // Name Validation
+    var arrName = document.getElementsByClassName("name");
+    var insertedName = arrName[0].value;
+    if (insertedName == "")
+    {
+        alert("Enter Your Name!");
+        return (false);
+    }
+    if (!/^[a-z A-Z]*$/g.test(insertedName))
+    {
+        alert("Only Alphanets Allowed in Name!");
+        return (false);
+    }
+
+    // Email
+    var arrEmail = document.getElementsByClassName("email");
+    var insertedEmail = arrEmail[0].value;
+    if (insertedEmail == "")
+    {
+        alert("Enter Your Email!");
+        return (false);
+    }
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(insertedEmail))
+    {
+        alert("Email address format invalid!");
+        return (false);
+    }
+
+    // Subject
+    var arrSubject = document.getElementsByClassName("subject");
+    var insertedSubject = arrSubject[0].value;
+    if (insertedSubject == "")
+    {
+        alert("Enter your subject!");
+        return (false);
+    }
+    if (!/^[a-z A-Z]*$/g.test(insertedSubject))
+    {
+        alert("Subject should only contain alphabets!");
+        return (false);
+    }
+
+    // Message
+    var arrMessage = document.getElementsByClassName("message");
+    var insertedMessage = arrMessage[0].value;
+    if (insertedMessage == "")
+    {
+        alert("Enter your Message!");
+        return (false);
+    }
+}
+
+// Contact validation ends

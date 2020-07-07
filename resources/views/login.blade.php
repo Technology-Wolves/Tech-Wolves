@@ -15,7 +15,7 @@
                 <div class="col-lg-6 contact-right-wthree-info login">
                     <h5 class="text-center mb-4"></h5>
                     <form action="#" method="POST" name="loginValidationForm">
-
+                        @csrf
                         <div class="form-group mt-4">
                             <label><i class="fas fa-at"></i> Email</label>
                             <input type="text" class="form-control" name="email" required>
