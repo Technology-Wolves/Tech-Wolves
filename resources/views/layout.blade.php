@@ -35,7 +35,7 @@
             <li class="fas fa-map-marked-alt"><a href="{{ url('/contacts#contact-map') }}">Maps</a></li>
             <li class="fas fa-box"><a href="{{ url('/products') }}">Products</a></li>
             <li class="far fa-user-circle"><a href="{{ url('/login') }}">Login</a></li>
-            <li class="fas fa-user-plus"><a href="{{ url('/registration') }}">Register</a></li>
+            <li class="fas fa-user-plus"><a href="{{ url('/register') }}">Register</a></li>
             <li class="fas fa-question"><a href="#">FAQs</a></li>
         </ul>
     </div>

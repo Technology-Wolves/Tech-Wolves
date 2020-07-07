@@ -75,7 +75,7 @@
                 <p class="px-lg-5">You are only few steps away from getting close to us. <br>If you haven't registerd yet, what are you waiting for... Just simply register and order our products online <br> -- Tech Wolves --</p>
                 <div class="buttons mt-md-4 mt-3">
                     <a href="{{ url('/login') }}" class="custom-btn"  style="color: #fff !important;">Login</a>
-                    <a href="{{ url('/registration') }}" class="custom-btn"  style="color: #fff !important;">Register</a>
+                    <a href="{{ url('/register') }}" class="custom-btn"  style="color: #fff !important;">Register</a>
                 </div>
             </div>
         </div>
