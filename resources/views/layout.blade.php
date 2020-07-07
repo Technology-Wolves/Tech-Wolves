@@ -31,11 +31,12 @@
         <ul>
             <li class="fas fa-home"><a href="{{ url('/') }}">Home</a></li>
             <li class="fas fa-address-card"><a href="{{ url('/about') }}">About</a></li>
-            <li class="fas fa-phone-alt"><a href="">Contact</a></li>
-            <li class="fas fa-map-marked-alt"><a href="">Maps</a></li>
-            <li class="fas fa-question"><a href="">FAQs</a></li>
+            <li class="fas fa-phone-alt"><a href="{{url('/contacts')}}">Contact</a></li>
+            <li class="fas fa-map-marked-alt"><a href="{{ url('/contacts#contact-map') }}">Maps</a></li>
+            <li class="fas fa-box"><a href="{{ url('/products') }}">Products</a></li>
             <li class="far fa-user-circle"><a href="{{ url('/login') }}">Login</a></li>
             <li class="fas fa-user-plus"><a href="{{ url('/registration') }}">Register</a></li>
+            <li class="fas fa-question"><a href="#">FAQs</a></li>
         </ul>
     </div>
 
@@ -72,6 +73,7 @@
                     <h4 class="mb-4">Subscribe Us</h4>
                     <p class="mb-3">Subscribe to our newsletter</p>
                     <form action="#" method="post" class="d-flex newsletter-w3pvt" name="subscribe">
+                        @csrf
                         <input type="email" id="email" class="email" name="subscribe-email" placeholder="Enter your email here">
                         <button type="submit" class="btn" name="subscribe-submit" onclick="return subscribeValidation()">Subscribe</button>
                     </form>
