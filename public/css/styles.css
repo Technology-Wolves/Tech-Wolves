@@ -352,3 +352,22 @@ form.d-flex.newsletter-w3pvt {
 }
 
 /* Contact Us Ends*/
+
+/* Product Page Show Product Begins */
+.pImg
+{
+    height: 200px;
+    width: 100%;
+}
+.productDesc
+{
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+/* Product Page Show Product Ends*/
+
+
