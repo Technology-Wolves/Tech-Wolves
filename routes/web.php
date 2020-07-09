@@ -25,9 +25,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contacts', function () {
-    return view('contacts');
-});
+//Route::get('/contacts', function () {
+//    return view('contacts');
+//});
+
 
 Auth::routes();
 
@@ -40,3 +41,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Contacts routes begins
+
+// View COntact page
+Route::get('/contacts', 'ContactController@create');
+
+// Store into databse
+Route::post('/contacts', 'ContactController@store');
+
+// Contacts routes ends
