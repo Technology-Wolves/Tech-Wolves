@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Contact Us')
+@section('title', 'Products')
 
 @section('main-section')
     <div class="container-fluid mt-4">
