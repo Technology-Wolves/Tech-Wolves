@@ -72,10 +72,15 @@
                 <div class="col-lg-4 col-sm-6">
                     <h4 class="mb-4">Subscribe Us</h4>
                     <p class="mb-3">Subscribe to our newsletter</p>
-                    <form action="#" method="post" class="d-flex newsletter-w3pvt" name="subscribe">
+                    <form method="POST" class="d-flex newsletter-w3pvt" name="subscribe" action="{{ url('/subscriptions') }}">
                         @csrf
-                        <input type="email" id="email" class="email" name="subscribe-email" placeholder="Enter your email here">
-                        <button type="submit" class="btn" name="subscribe-submit" onclick="return subscribeValidation()">Subscribe</button>
+                        <input type="email" id="email" class="email @error('email') is-invalid @enderror" name="email" placeholder="Enter your email here">
+                        <button type="submit" class="btn" onclick="return subscribeValidation()">Subscribe</button>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                        @enderror
                     </form>
                     <div class="icon-social mt-4">
                         <a href="https://www.facebook.com" target="_blank">
