@@ -2,6 +2,10 @@
 @section('title', 'Contact Us')
 
 @section('main-section')
+{{--    Show alert messages--}}
+    @if(Session::has('message'))
+        <p class="container mt-3 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
     <div class="inner-register">
         <div class="overlay-inner">
             <h3 class="tittle-wthree text-center">Contact Us</h3>
@@ -56,26 +60,47 @@
                 </div>
                 <div class="col-lg-6 contact-right-wthree-info login">
                     <h5 class="text-center mb-4"></h5>
-                    <form action="#" method="post" name="contact">
+                    <form method="POST" name="contact" action="{{ url('/contacts') }}">
                         @csrf
                         <div class="form-group mt-4">
                             <label>Name</label>
-                            <input type="text" name="contact-name" class="form-control name" id="validationDefault01" placeholder="" required="">
+                            <input type="text" name="name" class="form-control name @error('name') is-invalid @enderror" id="validationDefault01" placeholder="" value="{{old('name')}}">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group mt-4">
                             <label>Email</label>
-                            <input type="email" name="contact-email" class="form-control email" id="validationDefault02" placeholder="" required="">
+                            <input type="email" name="email" class="form-control email @error('email') is-invalid @enderror" id="validationDefault02" placeholder="" value="{{old('email')}}">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mt-4">
                             <label class="mb-2">Subject</label>
-                            <input type="text" name="contact-subject" class="form-control subject" id="password1" placeholder="" required="">
+                            <input type="text" name="subject" class="form-control subject @error('subject') is-invalid @enderror" id="password1" placeholder="" value="{{old('subject')}}">
+                            @error('subject')                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group mt-4">
                             <label class="mb-2">Message</label>
-                            <textarea class="form-control message" name="contact-message" name="Message" placeholder="" required=""></textarea>
+                            <textarea class="form-control message @error('message') is-invalid @enderror" name="message" placeholder=""> {{old('contact-message')}}</textarea>
+                            <small class="form-text text-danger">
+                                @error('message')
+                                <span class="message" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </small>
                         </div>
-                        <button type="submit" class="btn btn-primary submit mb-4" name="contact-submit" onclick="return contactValidation()">Submit </button>
+                        <button type="submit" class="btn btn-primary submit mb-4" onclick="return contacdtValidation()">Submit </button>
 
                     </form>
 

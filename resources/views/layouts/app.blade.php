@@ -55,7 +55,6 @@
                                   <img src="{{asset(('storage/profileImage/'. Auth::user()->profileImage))}}" style="height: 50px; width: 50px; border: 2px solid #000; border-radius: 50%;" alt="{{ Auth::user()->name }} {{__('\'s profile pic')}}">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

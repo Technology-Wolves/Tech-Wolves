@@ -103,6 +103,12 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+<script>
+    // hide alert messages
+    $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+    });
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
