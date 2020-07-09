@@ -80,11 +80,20 @@ class RegisterController extends Controller
         ]);
 
         //Save image
+//        if (request()->hasFile('profileImage')){
+//            $profileImage = request()->file('profileImage')->getClientOriginalName();
+//            request()->file('profileImage')->storeAs('profileImage', '/' . $profileImage, '');
+//            $user->update(['profileImage' => $profileImage]);
+//        }
+
         if (request()->hasFile('profileImage')){
-            $profileImage = request()->file('profileImage')->getClientOriginalName();
-            request()->file('profileImage')->storeAs('profileImage', '/' . $profileImage, '');
+            $file = request()->file('profileImage');
+            $extension = $file->getClientOriginalExtension();
+            $profileImage = time(). '.' . $extension;
+            $file->move('uploads/profileImage/', $profileImage);
             $user->update(['profileImage' => $profileImage]);
         }
+
 
         return $user;
     }
