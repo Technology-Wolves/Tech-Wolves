@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
         ]);
 
         Subscription::create($validatedAttributes);
-        Session::flash('message', 'Contact submitted!');
+        Session::flash('message', 'Subscriptions added!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/');
     }

@@ -1,6 +1,9 @@
 @extends('layout')
 @section('title', 'Home')
 @section('main-section')
+    @if(Session::has('message'))
+        <p class="container mt-3 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
     <div class="containerr">
         <div class="message-holder">
             <div class="message-button-holder">
