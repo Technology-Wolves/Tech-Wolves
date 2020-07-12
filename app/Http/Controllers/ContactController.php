@@ -18,14 +18,14 @@ class ContactController extends Controller
         //dump(request()->all());
         $validatedAttributes = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:contacts'],
+            'email' => ['required', 'string', 'email', 'max:50'],
             'subject' => ['required', 'string', 'max:150'],
             'message' => ['required', 'string', 'max:1000']
         ]);
 
         Contact::create($validatedAttributes);
         Session::flash('message', 'Contact submitted!');
-//        Session::flash('alert-class', 'alert-success');
+        Session::flash('alert-class', 'alert-success');
         return redirect('/contacts');
 
     }
