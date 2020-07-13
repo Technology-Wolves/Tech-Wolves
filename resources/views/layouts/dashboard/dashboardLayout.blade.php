@@ -41,9 +41,18 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{url('/')}}" class="nav-link">Home</a>
       </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{url('/about')}}" class="nav-link">About</a>
+        </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{url('/contacts')}}" class="nav-link">Contact</a>
       </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{url('/contacts#contact-map')}}" class="nav-link">Maps</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{url('/products')}}" class="nav-link">Products</a>
+        </li>
     </ul>
 
     <!-- SEARCH FORM -->
@@ -107,10 +116,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset(('uploads/profileImage/'. Auth::user()->profileImage))}}" class="img-circle elevation-2" alt="{{ Auth::user()->name }} {{__('\'s profile pic')}}" style="height: 50px; width: 50px; border: 2px solid #ddd;">
+          <img src="{{asset(('uploads/profileImage/'. Auth::user()->profileImage))}}" class="img-circle elevation-2" alt="{{ Auth::user()->name }} {{__('\'s profile pic')}}" style="height: 40px; width: 40px; border: 2px solid #ddd;margin: 2px 0 0 -4px;">
         </div>
         <div class="info">
-          <a href="#" class="d-block" style="margin-top: 7px;">{{ Str::limit(Auth::user()->name, 18) }}</a>
+          <a href="#" class="d-block" style="margin-top: 5px;">{{ Str::limit(Auth::user()->name, 18) }}</a>
         </div>
       </div>
 
