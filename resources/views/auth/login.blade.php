@@ -1,6 +1,11 @@
 @extends('layout')
 @section('title', 'Login')
 @section('main-section')
+
+    @if($errors->any())
+        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
+    @endif
+
     <div class="inner-register">
         <div class="overlay-inner">
             <h3 class="tittle-wthree text-center">Login</h3>

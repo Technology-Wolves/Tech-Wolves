@@ -110,7 +110,7 @@
           <img src="{{asset(('uploads/profileImage/'. Auth::user()->profileImage))}}" class="img-circle elevation-2" alt="{{ Auth::user()->name }} {{__('\'s profile pic')}}" style="height: 50px; width: 50px; border: 2px solid #ddd;">
         </div>
         <div class="info">
-          <a href="#" class="d-block" style="margin-top: 7px;">{{ Auth::user()->name }}</a>
+          <a href="#" class="d-block" style="margin-top: 7px;">{{ Str::limit(Auth::user()->name, 18) }}</a>
         </div>
       </div>
 
@@ -225,5 +225,11 @@
 <script src="{{ asset('/dashboard/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/dashboard/dist/js/demo.js') }}"></script>
+<script>
+    // hide alert messages
+    $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+    });
+</script>
 </body>
 </html>

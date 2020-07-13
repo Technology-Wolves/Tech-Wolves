@@ -34,8 +34,16 @@
             <li class="fas fa-phone-alt"><a href="{{url('/contacts')}}">Contact</a></li>
             <li class="fas fa-map-marked-alt"><a href="{{ url('/contacts#contact-map') }}">Maps</a></li>
             <li class="fas fa-box"><a href="{{ url('/products') }}">Products</a></li>
-            <li class="far fa-user-circle"><a href="{{ url('/login') }}">Login</a></li>
-            <li class="fas fa-user-plus"><a href="{{ url('/register') }}">Register</a></li>
+            @if(Auth::check())
+                <li class="far fa-user-circle"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
+                    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                <li class="fas fa-tachometer-alt"><a href="{{ url('/home') }}">Dashboard</a></li>
+            @else
+                <li class="far fa-user-circle"><a href="{{ url('/login') }}">Login</a></li>
+                <li class="fas fa-user-plus"><a href="{{ url('/register') }}">Register</a></li>
+            @endif
             <li class="fas fa-question"><a href="#">FAQs</a></li>
         </ul>
     </div>
