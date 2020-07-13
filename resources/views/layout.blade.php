@@ -50,6 +50,9 @@
 
     {{--  Dynamic Section Begins  --}}
 
+    @if($errors->any())
+        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
+    @endif
     @yield('main-section')
 
     {{--    Dynamic Section Ends --}}
@@ -71,9 +74,9 @@
                 <div class="col-lg-2 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
                     <h4 class="mb-4">Quick Links</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li class="my-2"><a href="#">Contact</a></li>
-                        <li><a href="#">Products</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                        <li class="my-2"><a href="{{ url('/contacts') }}">Contact</a></li>
+                        <li><a href="{{ url('/products') }}">Products</a></li>
                         <li class="mt-2"><a href="#">Privacy Ploicy</a></li>
                     </ul>
                 </div>
@@ -86,8 +89,8 @@
                         <button type="submit" class="btn" onclick="return subscribeValidation()">Subscribe</button>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </form>
                     <div class="icon-social mt-4">

@@ -3,9 +3,6 @@
 
 @section('main-section')
 {{--    Show alert messages--}}
-    @if($errors->any())
-        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
-    @endif
     @if(Session::has('message'))
         <p class="container mt-3 alert {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>
     @endif

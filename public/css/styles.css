@@ -354,20 +354,72 @@ form.d-flex.newsletter-w3pvt {
 /* Contact Us Ends*/
 
 /* Product Page Show Product Begins */
-.pImg
-{
+.card{
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+    background: white;
+    border-radius: 5px;
+    border: none;
+}
+.card-body{
+    background-color: #e8e8e8;
+}
+.pImg {
     height: 200px;
     width: 100%;
+    padding: 15px;
+    transition: all 0.25s ease-out;
 }
-.productDesc
-{
+.pImg:hover {
+    transition: all 0.25s ease-out;
+    transform: scale(1.05, 1.05);
     overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
-
-
+.productDesc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+}
+.heart-favourite{
+    font-size: 22px;
+    margin: 8px 0;
+    color: #0652a7;
+}
+.search-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.search-form>input, .search-form>button{
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.search-form>input{
+    border: 1px solid #ddd;
+    border-radius: 0px;
+}
+.search-form>button{
+    background-color: #0f60bd !important;
+    border-radius: 0px;
+    border-color: #0f60bd;
+}
+.search-form button:hover{
+    border-color: #0f60bd;
+}
 /* Product Page Show Product Ends*/
 
 
