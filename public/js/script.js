@@ -35,62 +35,18 @@ function subscribeValidation(){
 // Registration Validation Begins
 function registrationValidation()
 {
-    if (!/^[a-z A-Z]*$/g.test(document.registrationForm.fullName.value)) {
-        alert("Only Alphabets Allowed in first name!");
-        return false;
-    }
-    if (document.registrationForm.fullName.value === "") {
-        alert("Enter Full Name!");
-        return false;
-    }
-    if (document.registrationForm.email.value === "") {
-        alert("Enter Email!");
-        return false;
-    }
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.registrationForm.email.value))
+    // Name Validation
+    var arrName = document.getElementsByClassName("name");
+    var number = document.getElementsByClassName("telephone");
+    var insertedName = arrName[0].value;
+    var insertedTelephone = number[0].value;
+    if (!/^[a-z A-Z]*$/g.test(insertedName))
     {
-        alert("Email address format invalid!");
-        return false;
+        alert("Only Alphanets Allowed in Name!");
+        return (false);
     }
-    if (document.registrationForm.telephone.value === "") {
-        alert("Enter telephone number!");
-        return false;
-    }
-
-    if (!/^[0-9]*$/g.test(document.registrationForm.telephone.value)) {
-        alert("Only numbers allowed in telephone!");
-        return false;
-    }
-    if (document.registrationForm.telephone.value.length < 10 || document.registrationForm.telephone.value.length > 10){
-        alert("Phone Number should contain 10 digits only!");
-        return false;
-    }
-    if (document.registrationForm.address.value === "") {
-        alert("Enter Address!");
-        return false;
-    }
-    if (document.registrationForm.gender.value === ""){
-        alert("Select Gender");
-        return false;
-    }
-    if (document.registrationForm.password.value === "") {
-        alert("Enter Password");
-        return false;
-    }
-    if (document.registrationForm.confirm_password.value === "") {
-        alert("Enter Confirm Password!");
-        return false;
-    }
-    if(document.registrationForm.password.value !== document.registrationForm.confirm_password.value){
-        alert("Confirm-Password Doesnot match!");
-        return false;
-    }
-    if (document.registrationForm.registrationType.value === ""){
-        alert("Select Registration Type");
-        return false;
-    }
-    if (document.registrationForm.profileImage.value === ""){
-        alert("Select Profile Image");
+    if (insertedTelephone.length < 10){
+        alert("Phone Number should contain 10 digits!");
         return false;
     }
 }
@@ -124,51 +80,9 @@ function contactValidation(){
     // Name Validation
     var arrName = document.getElementsByClassName("name");
     var insertedName = arrName[0].value;
-    if (insertedName == "")
-    {
-        alert("Enter Your Name!");
-        return (false);
-    }
     if (!/^[a-z A-Z]*$/g.test(insertedName))
     {
         alert("Only Alphanets Allowed in Name!");
-        return (false);
-    }
-
-    // Email
-    var arrEmail = document.getElementsByClassName("email");
-    var insertedEmail = arrEmail[0].value;
-    if (insertedEmail == "")
-    {
-        alert("Enter Your Email!");
-        return (false);
-    }
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(insertedEmail))
-    {
-        alert("Email address format invalid!");
-        return (false);
-    }
-
-    // Subject
-    var arrSubject = document.getElementsByClassName("subject");
-    var insertedSubject = arrSubject[0].value;
-    if (insertedSubject == "")
-    {
-        alert("Enter your subject!");
-        return (false);
-    }
-    if (!/^[a-z A-Z]*$/g.test(insertedSubject))
-    {
-        alert("Subject should only contain alphabets!");
-        return (false);
-    }
-
-    // Message
-    var arrMessage = document.getElementsByClassName("message");
-    var insertedMessage = arrMessage[0].value;
-    if (insertedMessage == "")
-    {
-        alert("Enter your Message!");
         return (false);
     }
 }

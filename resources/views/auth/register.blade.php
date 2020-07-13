@@ -1,6 +1,9 @@
 @extends('layout')
 @section('title', 'Registration')
 @section('main-section')
+    @if($errors->any())
+        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
+    @endif
     <div class="inner-register">
         <div class="overlay-inner">
             <h3 class="tittle-wthree text-center">Registration</h3>
@@ -20,7 +23,7 @@
                         <div class="form-group mt-4">
                             <label><i class="fas fa-file-signature"></i> Full Name</label>
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control name @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -45,7 +48,7 @@
                         <div class="form-group mt-4">
                             <label><i class="fas fa-mobile-alt"></i> Phone</label>
                             <div class="col-md-12">
-                                <input id="name" type="number" class="form-control @error('telephone') is-invalid @enderror" name="telephone" maxlength="10" value="{{ old('telephone') }}" autocomplete="telephone" autofocus>
+                                <input id="name" type="number" class="form-control telephone @error('telephone') is-invalid @enderror" name="telephone" maxlength="10" value="{{ old('telephone') }}" autocomplete="telephone" autofocus>
 
                                 @error('telephone')
                                 <span class="invalid-feedback" role="alert">
@@ -135,7 +138,7 @@
 
                         <div class="form-group row mt-4">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" onclick="return registrationValidation()">
                                     {{ __('Register') }}
                                 </button>
                             </div>
