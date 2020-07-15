@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.dashboardLayout')
 @section('main-section')
     @if(Session::has('message'))
-        <p class="container mt-3 alert {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>
+        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>
     @endif
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
