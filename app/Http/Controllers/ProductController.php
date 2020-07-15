@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     // Open Add Product View
     protected function create(){
-        return view('products.create');
+        return view('layouts.seller.products.create');
     }
 
     // Add Product Into database
@@ -22,7 +22,7 @@ class ProductController extends Controller
             'productName'=> ['required', 'max:255'],
             'productDescription'=>['required', 'max: 2000'],
             'orginalPrice'=>['required'],
-            'discountRate' => 'required|numeric|min:5|max:50',
+            'discountRate' => 'required|numeric|min:0|max:50',
             'categories'=> ['required'],
             'productImage'=>['required', 'image', 'mimes:jpeg,png,jpg,gif']
         ]);

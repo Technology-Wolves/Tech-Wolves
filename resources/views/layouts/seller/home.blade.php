@@ -610,8 +610,8 @@
 
 @section('main-section')
     @if($errors->isEmpty())
-        <p class="container mt-3 alert-success alert"><i class="far fa-smile-beam"></i> {{ __('Welcome back, ') . Auth::user()->name . '!' }}</p>
-    @endif
+        <p class="container mt-3 alert-success alert col-md-7 text-center"><i class="far fa-smile-beam"></i> {{ __('Welcome back, ') . Auth::user()->name . '!' }}</p>
+  @endif
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
