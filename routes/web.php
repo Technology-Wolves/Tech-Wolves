@@ -67,4 +67,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Add Product into database
     Route::post('/addProduct', 'ProductController@store')->name('addProduct');
 
+    // Edit Product
+    Route::get('/addedProducts/{product}/update', 'ProductController@editProduct');
+
+    // Update Product
+    Route::put('/addedProducts/{product}', 'ProductController@updateProduct')->name('updateProduct');
 // Product routes ends

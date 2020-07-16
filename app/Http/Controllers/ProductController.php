@@ -64,11 +64,51 @@ class ProductController extends Controller
 
     // Get all product of owner
     protected function getAddedProduct(){
+        //die('hello');
         $products = Product::Where('productOwnerId',Auth::user()->id)->get();
-//      die('hello');
-//        dd($products);
+        //dd($products);
         return view('layouts.seller.products.viewAddedProduct',[
            'products'=>$products
         ]);
+    }
+
+    // Edit Product
+    protected function editProduct($productId){
+        $product = Product::find($productId);
+        return view('layouts.seller.products.update', compact('product'));
+    }
+
+    // Update Product
+    protected function updateProduct(Request $request, $productId){
+        $request->validate([
+            'productName'=> ['required', 'max:255'],
+            'productDescription'=>['required', 'max: 2000'],
+            'orginalPrice'=>['required'],
+            'discountRate' => 'required|numeric|min:0|max:50',
+            'categories'=> ['required'],
+            'productImage'=>['required', 'image', 'mimes:jpeg,png,jpg,gif']
+        ]);
+        $product = Product::find($productId);
+        $product->productName = $request->productName;
+        $product->productDescription = $request->productDescription;
+        $origPrice = $product->orginalPrice = $request->orginalPrice;
+        $disRate = $product->discountRate = $request->discountRate;
+        $discountedPrice = ($origPrice * $disRate) / 100;
+        $product->discountedPrice = $origPrice - $discountedPrice;
+        $product->categories = $request->categories;
+        $product->productImage = $request->productImage;
+
+        if (request()->hasFile('productImage')){
+            $file = request()->file('productImage');
+            $extension = $file->getClientOriginalExtension();
+            $productImage = time(). '.' . $extension;
+            $file->move('uploads/productImage/', $productImage);
+            $product->productImage = $productImage;
+        }
+
+        $product->save();
+        Session::flash('message', 'Product Added Successfully!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/addedProducts');
     }
 }
