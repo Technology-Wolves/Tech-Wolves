@@ -226,7 +226,7 @@ a:hover{
     color: #fff;
     width: 90%;
     margin: 0 auto;
-    background-color: rgb(225, 225, 225, 0.5);
+    background-color: rgba(225, 225, 225, 0.5);
 }
 .footer-info, .footer-info a{
     color: #fff !important;
@@ -374,6 +374,7 @@ form.d-flex.newsletter-w3pvt {
     width: 100%;
     padding: 15px;
     transition: all 0.25s ease-out;
+    background: rgba(0, 0, 0, 0.4);
 }
 .pImg:hover {
     transition: all 0.25s ease-out;

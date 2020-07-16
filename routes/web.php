@@ -49,19 +49,22 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
 // Contacts routes begins
 
-// View COntact page
-Route::get('/contacts', 'ContactController@create');
+    // View COntact page
+    Route::get('/contacts', 'ContactController@create');
 
-// Store into databse
-Route::post('/contacts', 'ContactController@store');
+    // Store into databse
+    Route::post('/contacts', 'ContactController@store');
 
 // Contacts routes ends
 
 // Product routes begins
-// Go to Product form
-Route::get('/addProduct', 'ProductController@create');
+    // Go to Product form
+    Route::get('/addProduct', 'ProductController@create');
 
-// Add Product into database
-Route::post('/addProduct', 'ProductController@store')->name('addProduct');
+    // Get added Products
+    Route::get('/addedProducts', 'ProductController@getAddedProduct')->middleware('auth');
+
+    // Add Product into database
+    Route::post('/addProduct', 'ProductController@store')->name('addProduct');
 
 // Product routes ends

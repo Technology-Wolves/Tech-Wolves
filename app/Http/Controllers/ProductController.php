@@ -56,9 +56,19 @@ class ProductController extends Controller
 
     // Get all product form the databse
     protected function index(){
-        $products = Product::latest()->get();
+        $products = Product::get();
         return view('products',[
             'products'=>$products
+        ]);
+    }
+
+    // Get all product of owner
+    protected function getAddedProduct(){
+        $products = Product::Where('productOwnerId',Auth::user()->id)->get();
+//      die('hello');
+//        dd($products);
+        return view('layouts.seller.products.viewAddedProduct',[
+           'products'=>$products
         ]);
     }
 }
