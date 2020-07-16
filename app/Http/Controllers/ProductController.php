@@ -107,7 +107,13 @@ class ProductController extends Controller
         }
 
         $product->save();
-        Session::flash('message', 'Product Added Successfully!');
+        Session::flash('message', 'Product Updated Successfully!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/addedProducts');
+    }
+    protected function deleteProduct($productId){
+        Product::destroy($productId);
+        Session::flash('message', 'Product Deleted Successfully!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/addedProducts');
     }

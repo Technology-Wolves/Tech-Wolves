@@ -40,8 +40,8 @@
                                 <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
 
                                 <span class="clearfix">
-                                    <a href="{{url('/addedProducts')}}/{{$product->id}}/{{__('update')}}" class="btn btn-primary float-left" style="border: none; width: 49%;"><i class="fas fa-edit"></i> Edit</a>
-                                    <a href="{{ '/addedProducts' }}/{{$product->id}}/delete" class="btn btn-danger float-right" style="border: none; width: 49%;"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    <a href="{{url('/addedProducts',$product->id)}}" class="btn btn-primary float-left" style="border: none; width: 49%;"><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="{{ url('/addedProducts',$product->id) }}/{{__('delete')}}" class="btn btn-danger float-right" style="border: none; width: 49%;" onclick="return confirm ('Are you sure you want to delete?');"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </span>
                             </div>
                         </div>
