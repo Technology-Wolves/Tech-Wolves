@@ -38,7 +38,6 @@ class ProductController extends Controller
         $product->productImage = $request->productImage;
         $user = Auth::user();
         $product->productOwnerId = $user->id;
-        $product->productOwner = $user->name;
 
         if (request()->hasFile('productImage')){
             $file = request()->file('productImage');

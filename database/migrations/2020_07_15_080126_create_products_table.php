@@ -23,8 +23,12 @@ class CreateProductsTable extends Migration
             $table->string('categories');
             $table->string('productImage');
             $table->string('productOwnerId');
-            $table->string('productOwner');
             $table->timestamps();
+
+            $table->foreign('productOwnerId')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
