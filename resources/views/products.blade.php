@@ -13,6 +13,10 @@
                 <input class="form-control w-75" type="Search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-danger w-auto" type="submit">Search</button>
             </form>
+            @if($products->isEmpty())
+                <p class="container mt-3 col-md-7 text-center bg-danger p-3" style="color: #fffa90 !important;">Sorry, No products found.
+                    <br>Wait for seller to upload their products. 😊</p>
+            @else
             @foreach($products as $product)
                 <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
                     <div class="card card-rad pt-4 mx-auto">
@@ -27,13 +31,14 @@
                             <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
 
                             <span class="clearfix">
-                            <a href="{{ '/productDetails' }}/{{$product->id}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
-                            <a href="{{ '/productDetails' }}/{{$product->id}}"><i class="fas fa-heart float-right heart-favourite"></i></a>
+                            <a href="{{ '/productDetails', $product->id}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
+                            <a href="{{ '/productDetails', $product->id }}"><i class="fas fa-heart float-right heart-favourite"></i></a>
                         </span>
                         </div>
                     </div>
                 </div>
             @endforeach
+            @endif
         </div>
     </div>
 @endsection

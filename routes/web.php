@@ -68,8 +68,11 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     Route::post('/addProduct', 'ProductController@store')->name('addProduct');
 
     // Edit Product
-    Route::get('/addedProducts/{product}/update', 'ProductController@editProduct');
+    Route::get('/addedProducts/{product}', 'ProductController@editProduct');
 
     // Update Product
     Route::put('/addedProducts/{product}', 'ProductController@updateProduct')->name('updateProduct');
+
+    //Delete Product
+    Route::get('/addedProducts/{product}/delete', 'ProductController@deleteProduct');
 // Product routes ends
