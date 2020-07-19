@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('discountRate');
             $table->string('categories');
             $table->string('productImage');
-            $table->string('productOwnerId');
+            $table->unsignedBigInteger('productOwnerId');
             $table->timestamps();
 
             $table->foreign('productOwnerId')
