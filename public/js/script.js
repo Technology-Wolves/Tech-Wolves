@@ -20,6 +20,26 @@ function showMenu(){
         showStatus = false;
     }
 }
+// Toggle Password Begins
+let passwordVisibility = false;
+function showHidePassword(){
+    const showPassword = document.querySelector(".showPassword");
+    const hidePassoword = document.querySelector(".hidePassword");
+
+    if(passwordVisibility === false){
+        hidePassoword.style.display = "inline";
+        showPassword.style.display = "none";
+        document.getElementById("password").type = "text";
+        passwordVisibility = true;
+    }else{
+        showPassword.style.display = "inline";
+        hidePassoword.style.display = "none";
+        document.getElementById("password").type = "password";
+        passwordVisibility = false;
+    }
+}
+// Toggle Password Ends
+
 // Subscribe Us Begins
 function subscribeValidation(){
     var arrValue = document.getElementsByClassName("email");

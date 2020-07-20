@@ -31,8 +31,8 @@
                             <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
 
                             <span class="clearfix">
-                            <a href="{{ '/productDetails', $product->id}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
-                            <a href="{{ '/productDetails', $product->id }}"><i class="fas fa-heart float-right heart-favourite"></i></a>
+                            <a href="{{ url('/product', $product->id)}}{{__('/details')}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
+                            <a href="{{$product->id}}"><i class="fas fa-heart float-right heart-favourite"></i></a>
                         </span>
                         </div>
                     </div>
