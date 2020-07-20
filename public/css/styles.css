@@ -423,4 +423,20 @@ form.d-flex.newsletter-w3pvt {
 }
 /* Product Page Show Product Ends*/
 
-
+/* Show Password Begins */
+.showPassword, .hidePassword{
+    color: rgb(145, 145, 145);
+    position: relative;
+    bottom: 31px;
+    left: 100%;
+    margin-left: -32px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+.showPassword{
+    display: inline;
+}
+.hidePassword{
+    display: none;
+}
+/* Show Password Ends */

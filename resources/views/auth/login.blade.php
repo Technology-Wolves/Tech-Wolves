@@ -1,11 +1,6 @@
 @extends('layout')
 @section('title', 'Login')
 @section('main-section')
-
-    @if($errors->any())
-        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
-    @endif
-
     <div class="inner-register">
         <div class="overlay-inner">
             <h3 class="tittle-wthree text-center">Login</h3>
@@ -37,6 +32,10 @@
                             <label><i class="fas fa-key"></i> {{__('Password')}}</label>
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                                <span onclick="showHidePassword();">
+                                    <i class="fas fa-eye showPassword"></i>
+                                    <i class="fas fa-eye-slash hidePassword"></i>
+                                  </span>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

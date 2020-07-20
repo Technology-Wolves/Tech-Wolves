@@ -92,7 +92,10 @@
                             <label><i class="fas fa-unlock-alt"></i> Password</label>
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
+                                <span onclick="showHidePassword();">
+                                    <i class="fas fa-eye showPassword"></i>
+                                    <i class="fas fa-eye-slash hidePassword"></i>
+                                  </span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

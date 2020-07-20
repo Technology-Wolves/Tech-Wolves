@@ -8,7 +8,7 @@ use App\Product;
 $factory->define(Product::class, function (Faker $faker) {
     return [
         'productName' => $faker->sentence,
-        'productDescription' => $faker->paragraphs,
+        'productDescription' => $faker->paragraph,
         'orginalPrice' => '1000',
         'discountedPrice' => '800',
         'discountRate' => '20',
