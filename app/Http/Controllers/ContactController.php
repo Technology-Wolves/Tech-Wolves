@@ -24,7 +24,7 @@ class ContactController extends Controller
         ]);
 
         Contact::create($validatedAttributes);
-        Session::flash('message', 'Contact submitted!');
+        Session::flash('success-message', 'Contact submitted!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/contacts');
 
