@@ -411,7 +411,7 @@ form.d-flex.newsletter-w3pvt {
     align-items: center;
     list-style: none;
 }
-.search-form>input, .search-form>button{
+.search-form>input, .search-form>button, select{
     box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.7px 5.3px rgba(0, 0, 0, 0.048),
