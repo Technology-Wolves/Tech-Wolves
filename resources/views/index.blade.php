@@ -1,8 +1,12 @@
 @extends('layout')
 @section('title', 'Home')
 @section('main-section')
-    @if(Session::has('message'))
-        <p class="container mt-3 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @if(Session::has('success-message'))
+        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('success-message') }}</p>
+    @endif
+
+    @if(Session::has('error-message'))
+        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-times-circle"></i> {{ Session::get('error-message') }}</p>
     @endif
     <div class="containerr">
         <div class="message-holder">
