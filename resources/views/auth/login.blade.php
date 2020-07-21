@@ -58,7 +58,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                &nbsp;&nbsp;&nbsp;<small class="card-text">New User??? Click <a style="text-decoration: underline;" href="{{ url('/register') }}"> here</a> to register!!!</small>
                                 {{--                                @if (Route::has('password.request'))--}}
                                 {{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
                                 {{--                                        {{ __('Forgot Your Password?') }}--}}

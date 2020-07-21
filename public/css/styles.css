@@ -123,6 +123,12 @@ li{
     color: #0652a7;
     transform: translateX(16px);
 }
+.active{
+    background-color: #0f60bd !important;
+}
+.os-padding nav ul li a i{
+    margin-left: -2px !important;
+}
 .message-holder{
     width: 100vw;
     height: auto;
@@ -206,6 +212,9 @@ a:hover{
     margin-bottom: 35px;
     border-radius: 5px;
     border: 1px solid #ddd;
+}
+.carousel-caption{
+    z-index: 0;
 }
 /* Slider End */
 
@@ -369,12 +378,14 @@ form.d-flex.newsletter-w3pvt {
 .card-body{
     background-color: #e8e8e8;
 }
+.image-holder{
+    background: rgba(0, 0, 0, 0.4);
+}
 .pImg {
     height: 200px;
     width: 100%;
     padding: 15px;
     transition: all 0.25s ease-out;
-    background: rgba(0, 0, 0, 0.4);
 }
 .pImg:hover {
     transition: all 0.25s ease-out;
