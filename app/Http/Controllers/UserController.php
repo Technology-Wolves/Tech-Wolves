@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -34,5 +35,36 @@ class UserController extends Controller
         Session::flash('message', 'Profile Updated Successfully!');
         Session::flash('alert-class', 'alert-success');
         return redirect()->route('viewProfile', $userId);
+    }
+
+    // Edit Password Form
+    protected function changePasswordForm($userId){
+        $user = User::find($userId);
+        return view('layouts.seller.profile.changePassword', compact('user'));
+    }
+
+    // Update Password
+    protected function updatePassword(Request $request, $userId){
+        $request->validate([
+            'oldPassword' => ['required', 'string'],
+            'password' => ['required', 'string', 'confirmed']
+        ]);
+
+        $user = User::find($userId);
+
+        if (Hash::check($request->oldPassword, $user->password)){
+            $updatedPassword = Hash::make($request->password);
+            $user->password = $updatedPassword;
+            $user->save();
+
+            Session::flash('success-message', 'Password changed successfully!');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->route('changePassword', $userId);
+            // dd($updatedPassword);
+        }else{
+            Session::flash('error-message', 'Old Password Doesn\'t match!');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->route('changePassword', $userId);
+        }
     }
 }

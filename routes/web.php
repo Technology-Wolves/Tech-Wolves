@@ -83,4 +83,10 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Update User Profile
     Route::put('/viewProfile/{userId}', 'UserController@updateUser')->name('updateProfile');
+
+    // Edit Password
+    Route::get('/changePassword/{userId}', 'UserController@changePasswordForm')->name('changePassword');
+
+    // Update Password
+    Route::put('/changePassword/{userId}', 'UserController@updatePassword')->name('updatePassword');
 /* Seller Profile Ends */

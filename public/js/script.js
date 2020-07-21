@@ -43,6 +43,27 @@ function showHidePassword(){
 }
 // Toggle Password Ends
 
+// Change Password's Toggle Password Begins
+let showPassword = false;
+function showHidePasswordChangePassword(){
+    let oldPassword = document.getElementById("oldPassword");
+    let newPassword = document.getElementById("newPassword");
+    let confirmPassword = document.getElementById("confirmPassword");
+
+    if(showPassword == false){
+        oldPassword.type = "text";
+        newPassword.type = "text";
+        confirmPassword.type = "text";
+        showPassword = true;
+    }else{
+        oldPassword.type = "password";
+        newPassword.type = "password";
+        confirmPassword.type = "password";
+        showPassword = false;
+    }
+}
+// Change Password's Toggle Password Begins
+
 // Subscribe Us Begins
 function subscribeValidation(){
     var arrValue = document.getElementsByClassName("email");

@@ -1,8 +1,12 @@
 @extends('layouts.dashboard.dashboardLayout')
-@section('title', 'Profile')
+@section('title', 'Change Passwordw')
 @section('main-section')
-    @if(Session::has('message'))
-        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>
+    @if(Session::has('success-message'))
+        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('success-message') }}</p>
+    @endif
+
+    @if(Session::has('error-message'))
+        <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-times-circle"></i> {{ Session::get('error-message') }}</p>
     @endif
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -11,7 +15,7 @@
             <div class="container-fluid col-md-8">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1 class="m-0 text-dark">Profile Update</h1>
+                        <h1 class="m-0 text-dark">Change Password</h1>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -20,14 +24,32 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid col-md-8">
-                <form method="POST" action="{{ route('updateProfile', $user->id) }}">
+                <span class="checkbox float-right">
+                    <input type="checkbox" id="showAllPassword" onclick="showHidePasswordChangePassword()">
+                    <label for="showAllPassword"><small class="card-text">Show All Password</small></label>
+                </span>
+                <form method="POST" action="{{ route('updatePassword', $user->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group mt-4">
-                        <label><i class="fas fa-file-signature"></i> Full Name</label>
+                        <label><i class="fas fa-key"></i> Old Password</label>
                         <div class="col-md-12">
-                            <input id="name" type="text" class="form-control name @error('name') is-invalid @enderror" name="name" autocomplete="name" autofocus value="{{ $user->name }}">
-                            @error('name')
+                            <input id="oldPassword" type="password" class="form-control @error('oldPassword') is-invalid @enderror" name="oldPassword" placeholder="Enter old password" value="{{old('oldPassword')}}">
+                            @error('oldPassword')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <hr class="mt-4">
+
+                    <div class="form-group mt-4">
+                        <label><i class="fas fa-key"></i> New Password</label>
+                        <div class="col-md-12">
+                            <input id="newPassword" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter new password" value="{{old('password')}}">
+                            @error('password')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -36,37 +58,11 @@
                     </div>
 
                     <div class="form-group mt-4">
-                        <label><i class="fas fa-at"></i> Email</label>
+                        <label><i class="fas fa-key"></i> Confirm Password</label>
                         <div class="col-md-12">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" autocomplete="email">
+                            <input id="confirmPassword" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Enter confirm password"  value="{{old('password_confirmation')}}">
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <label><i class="fas fa-mobile-alt"></i> Phone</label>
-                        <div class="col-md-12">
-                            <input id="name" type="number" class="form-control telephone @error('telephone') is-invalid @enderror" name="telephone" maxlength="10" value="{{ $user->telephone }}" autocomplete="telephone" autofocus>
-
-                            @error('telephone')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <label><i class="fas fa-map-marker-alt"></i> Address</label>
-                        <div class="col-md-12">
-                            <input id="name" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" autocomplete="address" autofocus>
-
-                            @error('address')
+                            @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -76,8 +72,8 @@
 
                     <div class="form-group row mt-4">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary" onclick="return registrationValidation()">
-                                {{ __('Update') }}
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Change Password') }}
                             </button>
                         </div>
                     </div>
