@@ -17,7 +17,7 @@
         <div class="nav clearfix">
             <div class="logo float-left">
                 <a href="{{ url('/') }}">
-                    <img src="images/logo.png" alt="Project's Logo">
+                    <img src="{{ url('images/logo.png') }}" alt="Project's Logo">
                 </a>
             </div>
             <div class="burger-lines float-right" onclick="showMenu()">
@@ -51,7 +51,7 @@
     {{--  Dynamic Section Begins  --}}
 
     @if($errors->any())
-        <p class="container mt-3 alert-danger alert"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
+        <p class="container mt-3 alert-danger alert text-center"><i class="far fa-times-circle"></i> {{ __('Please fill up the form properly!') }}</p>
     @endif
     @yield('main-section')
 

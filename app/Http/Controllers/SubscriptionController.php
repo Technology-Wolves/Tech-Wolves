@@ -17,9 +17,15 @@ class SubscriptionController extends Controller
            'email' => ['required', 'string', 'email', 'max:50', 'unique:subscriptions']
         ]);
 
-        Subscription::create($validatedAttributes);
-        Session::flash('message', 'Subscriptions added!');
-        Session::flash('alert-class', 'alert-success');
-        return redirect('/');
+        if(Subscription::create($validatedAttributes)){
+            Session::flash('success-message', 'Subscriptions added!');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('/');
+        }else{
+            Session::flash('error-message', 'Your email is already in the list!');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('/');
+        }
+
     }
 }

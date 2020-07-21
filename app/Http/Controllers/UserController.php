@@ -19,7 +19,7 @@ class UserController extends Controller
     // Update Profile
     protected function updateUser(Request $request, $userId){
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:50'],
             'telephone' => ['required', 'string', 'max:10'],
             'address' => ['required', 'string', 'max:50']
@@ -32,7 +32,7 @@ class UserController extends Controller
         $user->address = $request->address;
 
         $user->save();
-        Session::flash('message', 'Profile Updated Successfully!');
+        Session::flash('success-message', 'Profile Updated Successfully!');
         Session::flash('alert-class', 'alert-success');
         return redirect()->route('viewProfile', $userId);
     }
@@ -47,7 +47,7 @@ class UserController extends Controller
     protected function updatePassword(Request $request, $userId){
         $request->validate([
             'oldPassword' => ['required', 'string'],
-            'password' => ['required', 'string', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
 
         $user = User::find($userId);
