@@ -223,6 +223,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ url('/changePassword', Auth::user()->id) }}" class="nav-link {{ Request::path() === ('changePassword/'. Auth::user()->id) ? 'active': '' }}">
+                                <i class="nav-icon fas fa-key"></i>
+                                <p>
+                                    Change Password
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="pages/gallery.html" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
