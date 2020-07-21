@@ -11,7 +11,7 @@
         <div class="row">
             <form class="form-inline my-2 mb-4 w-100 search-form">
                 <input class="form-control w-75" type="Search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-danger w-auto" type="submit">Search</button>
+                <button class="btn btn-danger w-auto" type="submit">Search <i class="fas fa-search"></i></button>
             </form>
             @if($products->isEmpty())
                 <p class="container mt-3 col-md-7 text-center bg-danger p-3" style="color: #fffa90 !important;">Sorry, No products found.
@@ -20,7 +20,9 @@
             @foreach($products as $product)
                 <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
                     <div class="card card-rad pt-4 mx-auto">
-                        <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
+                        <div class="image-holder">
+                            <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">{{$product->productName}}</h5>
                             <p>

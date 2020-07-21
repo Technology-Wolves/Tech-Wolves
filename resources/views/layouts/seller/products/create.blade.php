@@ -1,4 +1,5 @@
 @extends('layouts.dashboard.dashboardLayout')
+@section('title', 'Add Product')
 @section('main-section')
     @if(Session::has('message'))
         <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>

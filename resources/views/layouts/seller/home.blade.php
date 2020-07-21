@@ -607,7 +607,7 @@
 {{--    </div>--}}
 {{--    <!-- /.content-wrapper -->--}}
 {{--@endsection--}}
-
+@section('title', 'Home')
 @section('main-section')
     @if($errors->isEmpty())
         <p class="container mt-3 alert-success alert col-md-7 text-center"><i class="far fa-smile-beam"></i> {{ __('Welcome back, ') . Auth::user()->name . '!' }}</p>

@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tech Wolves | Dashboard</title>
+    <title>Tech Wolves - @yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('images/logo-head.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/logo-head.png') }}" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -87,10 +89,10 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item text-center" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            <i class="nav-icon fas fa-sign-out-alt"></i> {{ __('Logout') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -107,7 +109,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ url('/') }}" class="brand-link">
-            <img src="{{asset('/images/logo-head-white.png')}}" alt="TEch wolves Logo" class="brand-image img-circle elevation-3"
+            <img src="{{asset('/images/logo-head-white.png')}}" alt="Tech wolves Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">Tech Wolves</span>
         </a>
@@ -120,7 +122,7 @@
                     <img src="{{asset(('uploads/profileImage/'. Auth::user()->profileImage))}}" class="img-circle elevation-2" alt="{{ Auth::user()->name }} {{__('\'s profile pic')}}" style="height: 40px; width: 40px; border: 2px solid #ddd;margin: 2px 0 0 -4px;">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block" style="margin-top: 5px;">{{ Str::limit(Auth::user()->name, 18) }}</a>
+                    <a href="{{ url('/viewProfile', Auth::user()->id) }}" class="d-block" style="margin-top: 5px;">{{ Str::limit(Auth::user()->name, 18) }}</a>
                 </div>
             </div>
 
@@ -132,11 +134,10 @@
                              with font-awesome or any other icon font library -->
                         <li class="nav-header">Admin Features</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="{{ url('/home') }}" class="nav-link">
+                                <i class="nav-icon fas fa-house-user"></i>
                                 <p>
-                                    Calendar
-                                    <span class="badge badge-info right">2</span>
+                                    Home
                                 </p>
                             </a>
                         </li>
@@ -190,26 +191,34 @@
                              with font-awesome or any other icon font library -->
                         <li class="nav-header">Seller Features</li>
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="{{ url('/home') }}" class="nav-link {{ Request::path() === 'home' ? 'active': '' }}">
+                                <i class="nav-icon fas fa-house-user"></i>
                                 <p>
                                     Home
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/addProduct') }}" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="{{ url('/addProduct') }}" class="nav-link {{ Request::path() === 'addProduct' ? 'active': '' }}">
+                                <i class="nav-icon fas fa-box"></i>
                                 <p>
                                     Add Product
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/addedProducts') }}" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="{{ url('/addedProducts') }}" class="nav-link {{ Request::path() === 'addedProducts' ? 'active': '' }}">
+                                <i class="nav-icon fas fa-eye"></i>
                                 <p>
                                     View Added Product
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/viewProfile', Auth::user()->id) }}" class="nav-link {{ Request::path() === ('viewProfile/'. Auth::user()->id) ? 'active': '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Profile
                                 </p>
                             </a>
                         </li>
@@ -263,11 +272,10 @@
                              with font-awesome or any other icon font library -->
                         <li class="nav-header">Buyer Features</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="{{ url('/home') }}" class="nav-link">
+                                <i class="nav-icon fas fa-house-user"></i>
                                 <p>
-                                    Calendar
-                                    <span class="badge badge-info right">2</span>
+                                    Home
                                 </p>
                             </a>
                         </li>
@@ -368,6 +376,8 @@
 <script src="{{ asset('/dashboard/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/dashboard/dist/js/demo.js') }}"></script>
+<!-- Custom JS -->
+<script src="{{ asset('/js/script.js') }}"></script>
 <script>
     // hide alert messages
     $(".alert").fadeTo(2000, 500).slideUp(500, function(){

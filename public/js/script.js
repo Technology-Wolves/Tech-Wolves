@@ -5,18 +5,21 @@ function showMenu(){
     let line2 = document.querySelector(".line-2");
     let line3 = document.querySelector(".line-3");
     let menus = document.querySelector(".nav-lists");
+    let navBar = document.querySelector(".nav-holder");
 
     if(showStatus === false){
         line1.style.transform = "translate(0px, 12px) rotateZ(45deg)";
         line2.style.opacity = "0";
         line3.style.transform = "translate(0px, -6px) rotateZ(-45deg)";
         menus.style.top = "0%";
+        navBar.style.position = "fixed";
         showStatus = true;
     }else{
         line1.style.transform = "translate(0px, 0px) rotateZ(0deg)";
         line2.style.opacity = "1";
         line3.style.transform = "translate(0px, 0px) rotateZ(0deg)";
         menus.style.top = "-100%";
+        navBar.style.position = "absolute";
         showStatus = false;
     }
 }

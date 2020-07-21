@@ -1,4 +1,5 @@
 @extends('layouts.dashboard.dashboardLayout')
+@section('title', 'All Products')
 @section('main-section')
     @if(Session::has('message'))
         <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('message') }}</p>
@@ -29,7 +30,9 @@
 
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
                         <div class="card card-rad pt-4 mx-auto">
-                            <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
+                            <div class="image-holder">
+                                <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->productName}}</h5>
                                 <p>

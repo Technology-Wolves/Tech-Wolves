@@ -14,7 +14,11 @@
                 </div>
             </div>
             <div class="hireButton">
-                <a href="{{ url('/login') }}" target="">Login!</a>
+            @if(Auth::check())
+                <a href="{{ url('/home') }}">Dashboard</a>
+            @else
+                <a href="{{ url('/login') }}">Login!</a>
+            @endif
             </div>
         </div>
     </div>

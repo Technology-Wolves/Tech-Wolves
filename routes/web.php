@@ -57,7 +57,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
 // Contacts routes ends
 
-// Product routes begins
+/* Product routes begins */
     // Go to Product form
     Route::get('/addProduct', 'ProductController@create');
 
@@ -75,4 +75,12 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     //Delete Product
     Route::get('/addedProducts/{product}/delete', 'ProductController@deleteProduct');
-// Product routes ends
+/* Product routes ends */
+
+/* Seller Profile Begins */
+    // Get all details
+    Route::get('/viewProfile/{userId}', 'UserController@editProfile')->name('viewProfile');
+
+    // Update User Profile
+    Route::put('/viewProfile/{userId}', 'UserController@updateUser')->name('updateProfile');
+/* Seller Profile Ends */

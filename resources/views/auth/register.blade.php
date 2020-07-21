@@ -144,6 +144,7 @@
                                 <button type="submit" class="btn btn-primary" onclick="return registrationValidation()">
                                     {{ __('Register') }}
                                 </button>
+                                &nbsp;&nbsp;&nbsp;<small class="card-text">Already Registered??? Click <a style="text-decoration: underline;" class="text-primary" href="{{ url('/login') }}">here</a> to login!!!</small>
                             </div>
                         </div>
                     </form>
