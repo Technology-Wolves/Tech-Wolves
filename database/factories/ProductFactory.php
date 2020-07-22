@@ -14,6 +14,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'discountRate' => '20',
         'categories' => 'others',
         'productImage' => 'default.jpg',
-        'productOwnerId' => factory(\App\User::class),
+        'productOwnerId' => factory(\App\User::class)
     ];
 });
