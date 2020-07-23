@@ -35,7 +35,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function products(){
+    public function productDetails(){
         // hasMany means one to many relationship
         return $this->hasMany(Product::class, 'productOwnerId');
     }

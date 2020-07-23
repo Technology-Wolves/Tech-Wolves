@@ -32,10 +32,13 @@
 
                             <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
 
+                            <span>
+                                Seller: {{ $product->productOwner->name }}
+                            </span>
                             <span class="clearfix">
-                            <a href="{{ url('/product', $product->id)}}{{__('/details')}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
-                            <a href="{{$product->id}}"><i class="fas fa-heart float-right heart-favourite"></i></a>
-                        </span>
+                                <a href="{{ url('/product', $product->id)}}{{__('/details')}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
+                                <a href="{{$product->id}}"><i class="fas fa-heart float-right heart-favourite"></i></a>
+                            </span>
                         </div>
                     </div>
                 </div>
