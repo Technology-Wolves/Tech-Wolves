@@ -22,7 +22,12 @@
         </div>
         <!-- /.content-header -->
         <!-- Main content -->
-        <section class="content">
+        @if(\Illuminate\Support\Facades\Auth::user()->id !== $user->id)
+            <p class="container mt-3 col-md-7 text-center form-control alert-danger"><i class="fas fa-times-circle"></i> Sorry, you cannot change other's password.
+                Click <a class="text-warning" href="{{ url('/changePassword', \Illuminate\Support\Facades\Auth::user()->id) }}">here</a> to change yours. 😃
+            </p>
+        @else
+            <section class="content">
             <div class="container-fluid col-md-8">
                 <span class="checkbox float-right">
                     <input type="checkbox" id="showAllPassword" onclick="showHidePasswordChangePassword()">
@@ -86,6 +91,7 @@
                 <p class="form-control text-center bg-warning mt-3">You joined Tech Wolves on: {{$user->created_at->toDateString()}}</p>
             </div>
         </section>
+        @endif
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
