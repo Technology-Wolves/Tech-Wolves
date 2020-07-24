@@ -10,17 +10,13 @@
     <div class="container mt-3 mb-5">
         <div class="row">
             <form class="form-inline my-2 mb-4 w-100 search-form">
-                
-            <div class="w-10" style="">
-                <select class="form-control @error('categories') is-invalid @enderror" name="categories" value="{{ old('categories')}} " autocomplete="categories" autofocus>
+                <select class="form-control search-categories @error('categories') is-invalid @enderror" name="categories" value="{{ old('categories')}} " autocomplete="categories" autofocus>
                     <option selected value="">Select Category</option>
                     <option value="laptop">Laptop</option>
                     <option value="pc">PC</option>
                     <option value="drives">Drives</option>
                     <option value="others">Others</option>
                 </select>
-            </div>
-
                 <input class="form-control w-50 ml-1" type="Search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-danger w-auto" type="submit">Search <i class="fas fa-search"></i></button>
             </form>
