@@ -58,6 +58,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 // Contacts routes ends
 
 /* Product routes begins */
+    // Get all added products
+    Route::get('/getProductsAdmin', 'ProductController@adminIndex');
+
     // Go to Product form
     Route::get('/addProduct', 'ProductController@create');
 
@@ -75,6 +78,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     //Delete Product
     Route::get('/addedProducts/{product}/delete', 'ProductController@deleteProduct');
+
+    //Delete Product Admin
+    Route::get('/addedProducts/{product}/adminDelete', 'ProductController@adminDeleteProduct');
 /* Product routes ends */
 
 /* Seller Profile Begins */

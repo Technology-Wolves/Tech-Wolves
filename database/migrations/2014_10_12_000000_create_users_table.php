@@ -39,7 +39,10 @@ class CreateUsersTable extends Migration
             'password' => Hash::make('admin'),
             'regType' => 'ADMIN',
             'profileImage' => 'default.png',
-            'isAdmin' => true
+            'isAdmin' => true,
+            'remember_token' => Str::random(10),
+            'created_at'=>now(),
+            'updated_at'=>now()
         ]);
     }
 
