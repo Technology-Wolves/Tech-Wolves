@@ -150,6 +150,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/viewProfile', Auth::user()->id) }}" class="nav-link {{ Request::path() === ('viewProfile/'. Auth::user()->id) ? 'active': '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Profile
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- Admin Sidebar-menu ends -->
