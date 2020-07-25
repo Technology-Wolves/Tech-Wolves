@@ -13,7 +13,8 @@ class UserController extends Controller
 {
     // Get All Users
     protected function getAllUser(){
-        $users = User::get();
+        $users = User::paginate(6);
+        //dd($users);
         return view('layouts.admin.viewAllUsers',[
             'users'=>$users
         ]);

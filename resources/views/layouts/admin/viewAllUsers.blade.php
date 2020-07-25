@@ -69,6 +69,11 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{--Pagination Begins--}}
+                    <div class="paginations">
+                        {{ $users->links() }}
+                    </div>
+                    {{--Pagination Ends--}}
                 </div>
             </div>
             <!-- /.container-fluid -->
