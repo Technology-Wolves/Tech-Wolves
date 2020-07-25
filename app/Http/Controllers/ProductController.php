@@ -116,4 +116,19 @@ class ProductController extends Controller
         Session::flash('alert-class', 'alert-success');
         return redirect('/addedProducts');
     }
+
+    // Get all product form the databse
+    protected function adminIndex(){
+        $products = Product::get();
+        return view('layouts.admin.viewAllAddedProduct',[
+            'products'=>$products
+        ]);
+    }
+
+    protected function adminDeleteProduct($productId){
+        Product::destroy($productId);
+        Session::flash('success-message', 'Product Deleted Successfully!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/getProductsAdmin');
+    }
 }
