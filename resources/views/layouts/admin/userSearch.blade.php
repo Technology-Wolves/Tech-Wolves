@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.dashboardLayout')
-@section('title', 'All Users')
+@section('title', 'Search Result')
 @section('main-section')
     @if(Session::has('success-message'))
         <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('success-message') }}</p>
@@ -15,7 +15,7 @@
             <div class="container-fluid col-md-8 mt-3">
                 <div class="row mb-2">
                     <div class="col-sm-12 clearfix">
-                        <h1 class="m-0 text-dark title-text">All Users</h1>
+                        <h1 class="m-0 text-dark title-text">Possible Result</h1>
                         <!-- SEARCH FORM -->
                         <form class="form-inline ml-3 title-form" type="GET" action="{{ url('/userSearch') }}">
                             <div class="input-group input-group-sm">
@@ -37,6 +37,10 @@
         <section class="content">
             <div class="container-fluid col-md-8">
                 <div class="row">
+                    @if($users->isEmpty())
+                    <p class="container mt-3 col-md-7 text-center bg-danger p-3">Sorry, No any users found. To view all users click
+                        <a href="{{ url('/getAllUsers') }}" style="color: #fffa90 !important; text-decoration: underline;"> here.</a></p>
+                    @else
                     <table class="table table-bordered text-center">
                         <thead>
                         <tr>
@@ -53,22 +57,23 @@
                         <tbody>
                         @php $number = 1; @endphp
                         @foreach($users as $user)
-                        <tr>
-                            <th scope="row">{{$number++}}</th>
-                            <td><img src="{{asset('/uploads/profileImage'). '/' . $user->profileImage}}" alt="{{$user->name}}" style="width: 50px; height: 50px; background-color: #0c5460"></td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->address}}</td>
-                            <td>{{$user->gender}}</td>
-                            <td>{{$user->regType}}</td>
-                            <td>
-                                <a class="btn btn-primary" href="mailto: {{$user->email}}?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
-                                <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row">{{$number++}}</th>
+                                <td><img src="{{asset('/uploads/profileImage'). '/' . $user->profileImage}}" alt="{{$user->name}}" style="width: 50px; height: 50px; background-color: #0c5460"></td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->gender}}</td>
+                                <td>{{$user->regType}}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="mailto: {{$user->email}}?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
+                                    <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
             <!-- /.container-fluid -->

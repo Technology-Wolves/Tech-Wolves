@@ -464,7 +464,7 @@ form.d-flex.newsletter-w3pvt {
 .title-form{
     float: right;
 }
-table td{
+table th, table td{
     vertical-align: middle !important;
 }
 /* Admin View User Part Ends */
