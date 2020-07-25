@@ -58,8 +58,6 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 // Contacts routes ends
 
 /* Product routes begins */
-    // Get all added products
-    Route::get('/getProductsAdmin', 'ProductController@adminIndex');
 
     // Go to Product form
     Route::get('/addProduct', 'ProductController@create');
@@ -79,8 +77,6 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     //Delete Product
     Route::get('/addedProducts/{product}/delete', 'ProductController@deleteProduct');
 
-    //Delete Product Admin
-    Route::get('/addedProducts/{product}/adminDelete', 'ProductController@adminDeleteProduct');
 /* Product routes ends */
 
 /* Seller Profile Begins */
@@ -96,3 +92,16 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Update Password
     Route::put('/changePassword/{userId}', 'UserController@updatePassword')->name('updatePassword');
 /* Seller Profile Ends */
+
+/* Admin Begins */
+
+    // Get all added products
+    Route::get('/getProductsAdmin', 'ProductController@adminIndex');
+
+    //Delete Product Admin
+    Route::get('/addedProducts/{product}/adminDelete', 'ProductController@adminDeleteProduct');
+
+    // Get all users
+    Route::get('/getAllUsers', 'UserController@getAllUser');
+
+/* Admin Ends */

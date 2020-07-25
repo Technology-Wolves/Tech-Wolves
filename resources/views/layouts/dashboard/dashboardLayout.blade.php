@@ -58,18 +58,6 @@
             </li>
         </ul>
 
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -141,15 +129,6 @@
                                 </p>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="{{ url('/getProductsAdmin') }}" class="nav-link {{ Request::path() === 'getProductsAdmin' ? 'active': '' }}">
-                                <i class="nav-icon fas fa-eye"></i>
-                                <p>
-                                    View Added Product
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="{{ url('/viewProfile', Auth::user()->id) }}" class="nav-link {{ Request::path() === ('viewProfile/'. Auth::user()->id) ? 'active': '' }}">
                                 <i class="nav-icon fas fa-user"></i>
@@ -163,6 +142,22 @@
                                 <i class="nav-icon fas fa-key"></i>
                                 <p>
                                     Change Password
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/getProductsAdmin') }}" class="nav-link {{ Request::path() === 'getProductsAdmin' ? 'active': '' }}">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p>
+                                    View Added Product
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/getAllUsers') }}" class="nav-link {{ Request::path() === 'getAllUsers' ? 'active': '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    View All Users
                                 </p>
                             </a>
                         </li>

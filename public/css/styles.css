@@ -454,3 +454,17 @@ form.d-flex.newsletter-w3pvt {
     display: none;
 }
 /* Show Password Ends */
+
+
+/* Admin View User Part Begins */
+.title-text{
+    display: inline;
+    float: left;
+}
+.title-form{
+    float: right;
+}
+table td{
+    vertical-align: middle !important;
+}
+/* Admin View User Part Ends */
