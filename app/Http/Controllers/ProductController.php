@@ -55,7 +55,7 @@ class ProductController extends Controller
 
     // Get all product form the databse
     protected function index(){
-        $products = Product::get();
+        $products = Product::paginate(8);
         return view('products',[
             'products'=>$products
         ]);

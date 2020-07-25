@@ -467,4 +467,11 @@ form.d-flex.newsletter-w3pvt {
 table th, table td{
     vertical-align: middle !important;
 }
+.paginations{
+    width: 100%;
+}
+.pagination{
+    justify-content: center;
+    float: right !important;
+}
 /* Admin View User Part Ends */

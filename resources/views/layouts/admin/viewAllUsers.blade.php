@@ -35,7 +35,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid col-md-8">
+            <div class="container-fluid col-md-9">
                 <div class="row">
                     <table class="table table-bordered text-center">
                         <thead>
