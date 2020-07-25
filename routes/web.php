@@ -104,4 +104,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Get all users
     Route::get('/getAllUsers', 'UserController@getAllUser');
 
+    // Search User
+    Route::get('/userSearch', 'UserController@userSearch');
+
 /* Admin Ends */

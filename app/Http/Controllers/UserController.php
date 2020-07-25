@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -81,5 +82,11 @@ class UserController extends Controller
             Session::flash('alert-class', 'alert-danger');
             return redirect()->route('changePassword', $userId);
         }
+    }
+    protected function userSearch(){
+        $search_text = $_GET['query'];
+        $users = User::where('name', 'LIKE', '%'.$search_text.'%')->get();
+
+        return view('layouts.admin.userSearch', compact('users'));
     }
 }
