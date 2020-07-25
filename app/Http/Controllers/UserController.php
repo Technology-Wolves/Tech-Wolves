@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    // Get All Users
+    protected function getAllUser(){
+        $users = User::get();
+        return view('layouts.admin.viewAllUsers',[
+            'users'=>$users
+        ]);
+    }
+
     // Edit Profile
     protected function editProfile($userId){
         $user = User::find($userId);
