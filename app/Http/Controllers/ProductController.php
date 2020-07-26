@@ -119,7 +119,7 @@ class ProductController extends Controller
 
     // Get all product form the databse
     protected function adminIndex(){
-        $products = Product::get();
+        $products = Product::paginate(8);
         return view('layouts.admin.viewAllAddedProduct',[
             'products'=>$products
         ]);

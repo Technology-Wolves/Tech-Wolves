@@ -31,7 +31,6 @@
                 @else
                     <div class="row">
                     @foreach($products as $product)
-
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
                         <div class="card card-rad pt-4 mx-auto">
                             <div class="image-holder">
@@ -52,11 +51,12 @@
                             </div>
                         </div>
                     </div>
-
                     @endforeach
+                        <div class="paginations">
+                            {{$products->links()}}
+                        </div>
                     </div>
                 @endif
-
             </div>
             <!-- /.container-fluid -->
         </section>
