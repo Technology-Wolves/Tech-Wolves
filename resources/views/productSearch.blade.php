@@ -1,10 +1,10 @@
 @extends('layout')
-@section('title', 'Products')
+@section('title', 'Products Search')
 
 @section('main-section')
     <div class="inner-register">
         <div class="overlay-inner">
-            <h3 class="tittle-wthree text-center">Products</h3>
+            <h3 class="tittle-wthree text-center">Possible Results</h3>
         </div>
     </div>
     <div class="container mt-3 mb-5">
@@ -22,7 +22,7 @@
             </form>
             @if($products->isEmpty())
                 <p class="container mt-3 col-md-7 text-center bg-danger p-3" style="color: #fffa90 !important;">Sorry, No products found.
-                    <br>Wait for seller to upload their products. 😊</p>
+                    <br>Please search for other <a class="text-secondary" href="{{url('/products')}}"> product.</a> 😊</p>
             @else
             @foreach($products as $product)
                 <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
@@ -51,9 +51,6 @@
                 </div>
             @endforeach
             @endif
-            <div class="paginations">
-                {{$products->links()}}
-            </div>
         </div>
     </div>
 @endsection

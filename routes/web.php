@@ -77,6 +77,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     //Delete Product
     Route::get('/addedProducts/{product}/delete', 'ProductController@deleteProduct');
 
+    //Product Search
+    Route::get('/searchProduct', 'ProductController@searchProduct');
+
 /* Product routes ends */
 
 /* Seller Profile Begins */

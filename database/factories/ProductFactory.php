@@ -12,7 +12,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'orginalPrice' => '1000',
         'discountedPrice' => '800',
         'discountRate' => '20',
-        'categories' => 'others',
+        'categories' => 'laptop',
         'productImage' => 'default.jpg',
         'productOwnerId' => factory(\App\User::class)
     ];
