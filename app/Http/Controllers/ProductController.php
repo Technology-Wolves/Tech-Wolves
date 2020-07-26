@@ -125,10 +125,20 @@ class ProductController extends Controller
         ]);
     }
 
+    // Delete Product Admin
     protected function adminDeleteProduct($productId){
         Product::destroy($productId);
         Session::flash('success-message', 'Product Deleted Successfully!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/getProductsAdmin');
+    }
+
+    // Search Products
+    protected function searchProduct(){
+        $category = $_GET['categories'];
+        $query = $_GET['query'];
+
+        $products = Product::where('productName', 'LIKE', '%'.$query.'%')->where('categories', $category)->get();
+        return view('productSearch', compact('products'));
     }
 }
