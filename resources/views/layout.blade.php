@@ -117,6 +117,7 @@
     </div>
 </div>
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/popper.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 <script>

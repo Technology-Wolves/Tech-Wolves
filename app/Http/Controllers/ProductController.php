@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\User;
@@ -140,5 +141,31 @@ class ProductController extends Controller
 
         $products = Product::where('productName', 'LIKE', '%'.$query.'%')->where('categories', $category)->get();
         return view('productSearch', compact('products'));
+    }
+
+    // Get Add To Cart
+    public function getAddToCart(Request $request, $id){
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        $request->session()->put('cart', $cart);
+        // dd($request->session()->get('cart'));
+
+        Session::flash('success-message', 'Added to your cart!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/products');
+    }
+
+    //
+    public  function getCart(){
+        if (!Session::has('cart')){
+            return view('cart.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('cart.shopping-cart', ['products'=>$cart->items, 'totalPrice'=> $cart->totalPrice]);
+
     }
 }
