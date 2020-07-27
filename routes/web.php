@@ -111,3 +111,11 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     Route::get('/userSearch', 'UserController@userSearch');
 
 /* Admin Ends */
+
+/* Add to Cart Begins */
+    // To add products in cart
+    Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('product.addToCart');
+
+    // To show added product of cart
+    Route::get('/shopping-cart', 'ProductController@getCart')->name('product.shoppingCart');
+/* Add to Cart Ends */

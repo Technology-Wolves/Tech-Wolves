@@ -7,6 +7,12 @@
             <h3 class="tittle-wthree text-center">Possible Results</h3>
         </div>
     </div>
+    <div class="cart">
+        <a href="{{ route('product.shoppingCart') }}">
+            <i class="fas fa-shopping-cart total-cart"></i>
+            <span class="badge badge-danger product-items-count">{{ \Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty : '' }}</span>
+        </a>
+    </div>
     <div class="container mt-3 mb-5">
         <div class="row">
         <form class="form-inline my-2 mb-4 w-100 search-form" action="{{url('/searchProduct')}}">
@@ -24,32 +30,34 @@
                 <p class="container mt-3 col-md-7 text-center bg-danger p-3" style="color: #fffa90 !important;">Sorry, No products found.
                     <br>Please search for other <a class="text-secondary" href="{{url('/products')}}"> product.</a> 😊</p>
             @else
-            @foreach($products as $product)
-                <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex align-items-stretch">
-                    <div class="card card-rad pt-4 mx-auto">
-                        <div class="image-holder">
-                            <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{$product->productName}}</h5>
-                            <p>
-                            <p class="card-text productDesc">{{$product->productDescription}}</p>
+                @foreach($products as $product)
+                    <div class=" col-md-6 col-md-3 col-lg-3 d-flex align-items-stretch mb-4">
+                        <div class="card card-rad pt-4 mx-auto">
+                            <div class="image-holder">
+                                <img src="{{ asset('uploads/productImage') }}/{{$product->productImage}}" class="card-img-top pImg" alt="Product Image">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ \Illuminate\Support\Str::limit($product->productName, 50)  }}</h5>
+                                <p>
+                                <p class="card-text productDesc">{{$product->productDescription}}</p>
 
-                            <small class="form-text card-text productDesc">Original Price: <strong><strike>रू {{$product->orginalPrice}}</strike></strong> <span class="float-right"><strong>Dis. {{$product->discountRate}}%</strong></span></small>
+                                <small class="form-text card-text productDesc">Original Price: <strong><strike>रू {{$product->orginalPrice}}</strike></strong> <span class="float-right"><strong>Dis. {{$product->discountRate}}%</strong></span></small>
 
-                            <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
+                                <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$product->discountedPrice}}</strong></small>
 
-                            <span>
-                                Seller: {{ $product->productOwner->name }}
-                            </span>
-                            <span class="clearfix">
-                                <a href="{{ url('/product', $product->id)}}{{__('/details')}}" class="btn btn-primary custom-btn float-left" style="border: none;">See More &raquo;</a>
-                                <a href="{{$product->id}}"><i class="fas fa-heart float-right heart-favourite"></i></a>
-                            </span>
+                                <p class="text-center">
+                                    <strong>Seller: </strong>{{ \Illuminate\Support\Str::limit($product->productOwner->name, 10) }}
+                                </p>
+                                <div class="product-button-holders">
+                                    <a href="{{ url('/product', $product->id)}}{{__('/details')}}" class="btn btn-primary custom-btn" style="border: none;">See More &raquo;</a>
+                                    <a href="{{ route('product.addToCart', $product->id) }}"><i class="fas fa-cart-plus add-to-cart"></i></a>
+                                    <a href="{{$product->id}}"><i class="far fa-heart heart-favourite"></i></a>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             @endif
         </div>
     </div>
