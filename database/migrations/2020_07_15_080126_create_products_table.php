@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('discountedPrice');
             $table->string('discountRate');
             $table->string('categories');
-            $table->string('productImage');
+            $table->string('productImage')->nullable();
             $table->unsignedBigInteger('productOwnerId');
             $table->timestamps();
 
