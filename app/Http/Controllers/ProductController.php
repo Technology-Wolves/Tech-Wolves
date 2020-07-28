@@ -86,7 +86,7 @@ class ProductController extends Controller
             'orginalPrice'=>['required'],
             'discountRate' => 'required|numeric|min:0|max:50',
             'categories'=> ['required'],
-            'productImage'=>['required', 'image', 'mimes:jpeg,png,jpg,gif']
+            'productImage'=>['image', 'mimes:jpeg,png,jpg,gif']
         ]);
         $product = Product::find($productId);
         $product->productName = $request->productName;
@@ -96,7 +96,6 @@ class ProductController extends Controller
         $discountedPrice = ($origPrice * $disRate) / 100;
         $product->discountedPrice = $origPrice - $discountedPrice;
         $product->categories = $request->categories;
-        $product->productImage = $request->productImage;
 
         if (request()->hasFile('productImage')){
             $file = request()->file('productImage');
