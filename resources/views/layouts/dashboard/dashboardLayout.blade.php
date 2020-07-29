@@ -286,6 +286,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/viewOrders') }}" class="nav-link {{ Request::path() === ('viewOrders/') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    View Orders
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Buyer Sidebar-menu ends -->
