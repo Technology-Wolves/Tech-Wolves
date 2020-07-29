@@ -125,3 +125,8 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Store in DB
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout')->middleware('auth');
 /* Add to Cart Ends */
+
+/* Order Begins */
+    // View ordered orders
+    Route::get('/viewOrders', 'OrderController@getOrders');
+/* Order Ends */
