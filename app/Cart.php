@@ -28,4 +28,31 @@ class Cart
         $this->totalQty++;
         $this->totalPrice += $item->discountedPrice;
     }
+    public function incrementByOne($id){
+        $this->items[$id]['qty']++;
+        $this->items[$id]['price'] += $this->items[$id]['item']['discountedPrice'];
+        $this->totalQty++;
+        $this->totalPrice += $this->items[$id]['item']['discountedPrice'];
+
+        if ($this->items[$id]['qty'] <= 0){
+            unset($this->items[$id]);
+        }
+    }
+
+    public function reduceByOne($id){
+        $this->items[$id]['qty']--;
+        $this->items[$id]['price'] -= $this->items[$id]['item']['discountedPrice'];
+        $this->totalQty--;
+        $this->totalPrice -= $this->items[$id]['item']['discountedPrice'];
+
+        if ($this->items[$id]['qty'] <= 0){
+            unset($this->items[$id]);
+        }
+    }
+
+    public function removeItem($id){
+        $this->totalQty -= $this->items[$id]['qty'];
+        $this->totalPrice -= $this->items[$id]['price'];
+        unset($this->items[$id]);
+    }
 }

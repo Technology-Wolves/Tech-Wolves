@@ -48,8 +48,9 @@
                             <td><strong>{{$product['qty']}}</strong></td>
                             <td><strong>रू. {{$product['price']}}</strong></td>
                             <td>
-                                <a class="btn btn-primary mb-1" href="#"><i class="fas fa-plus"></i></a>
-                                <a class="btn btn-danger mb-1" href="#"><i class="fas fa-minus"></i></a>
+                                <a class="btn btn-primary mb-1" href="{{ route( 'product.getIncrementByOne', ['id'=>$product['item']['id']]) }}"><i class="fas fa-plus"></i></a>
+                                <a class="btn btn-secondary mb-1" href="{{ route( 'product.reduceByOne', ['id'=>$product['item']['id']]) }}"><i class="fas fa-minus"></i></a>
+                                <a class="btn btn-danger mb-1" href="{{ route( 'product.remove', ['id'=>$product['item']['id']]) }}"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

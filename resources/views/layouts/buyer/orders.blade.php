@@ -24,27 +24,28 @@
         <!-- Main content -->
 
         <section class="content">
-            <div class="container-fluid col-md-8">
+            <div class="container col-md-8">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-12 col-md-offset-2">
                         @foreach($orders as $order)
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <ul class="list-group">
                                         @foreach($order->cart->items as $item)
                                         <li class="list-group-item">
-                                            <span class="badge badge-primary">{{ $item['price'] }}</span>
-                                            {{ $item['item']['productName'] }} | {{ $item['qty'] }} Units
+                                            <span class="badge badge-primary">रू. {{ $item['price'] }}</span>
+                                            {{ $item['item']['productName'] }} | {{ $item['qty'] }} {{ $item['qty'] === 1 ? 'Unit' : 'Units' }}
                                         </li>
                                         @endforeach
                                     </ul>
                                 </div>
                                 <div class="panel-footer">
                                     <strong>
-                                        Total Price: ${{ $order->cart->totalPrice }}
+                                        Total Price: रू. {{ $order->cart->totalPrice }}
                                     </strong>
                                 </div>
                             </div>
+                            <hr>
                         @endforeach
                     </div>
                 </div>
