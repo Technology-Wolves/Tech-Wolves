@@ -39,4 +39,7 @@ class User extends Authenticatable
         // hasMany means one to many relationship
         return $this->hasMany(Product::class, 'productOwnerId');
     }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

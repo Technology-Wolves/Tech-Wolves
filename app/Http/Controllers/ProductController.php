@@ -6,9 +6,11 @@ use App\Cart;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\User;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -166,5 +168,39 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         return view('cart.shopping-cart', ['products'=>$cart->items, 'totalPrice'=> $cart->totalPrice]);
 
+    }
+    public function getCheckout(){
+        if (!Session::has('cart')){
+            return view('cart.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('cart.checkout', ['total' => $total]);
+    }
+
+    public function postCheckout(Request $request){
+
+        if (!Session::has('cart')){
+            return view('cart.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $order = new Order();
+        $order->user_id = Auth::user()->id;
+        $order->name = $request->name;
+        $order->email = $request->email;
+        $order->phone = $request->telephone;
+        $order->address = $request->address;
+        $order->paymentType = $request->paymentType;
+        $order->cart = serialize($cart);
+
+        Auth::user()->orders()->save($order);
+
+        Session::forget('cart');
+        Session::flash('success-message', 'Checkout Successful!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/products');
     }
 }
