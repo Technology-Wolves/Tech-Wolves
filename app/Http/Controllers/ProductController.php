@@ -158,8 +158,44 @@ class ProductController extends Controller
         Session::flash('alert-class', 'alert-success');
         return redirect('/products');
     }
+    // Increment Cart Item by 1
+    public function getIncrementByOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->incrementByOne($id);
+        if (count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }else{
+            Session::forget('cart');
+        }
+        return redirect('shopping-cart');
+    }
 
-    //
+    // Reduce Cart Item by 1
+    public function getReduceByOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+        if (count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }else{
+            Session::forget('cart');
+        }
+        return redirect('shopping-cart');
+    }
+    // Delete cart product
+    public function getRemoveItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if (count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }else{
+            Session::forget('cart');
+        }
+        return redirect('shopping-cart');
+    }
+
     public  function getCart(){
         if (!Session::has('cart')){
             return view('cart.shopping-cart');

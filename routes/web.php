@@ -119,6 +119,12 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // To show added product of cart
     Route::get('/shopping-cart', 'ProductController@getCart')->name('product.shoppingCart');
 
+    // Increase Product By 1
+    Route::get('/increase/{id}', 'ProductController@getIncrementByOne')->name('product.getIncrementByOne');
+
+    // Reduce Product By 1
+    Route::get('/reduce/{id}', 'ProductController@getReduceByOne')->name('product.reduceByOne');
+
     //Checkout
     Route::get('/checkout', 'ProductController@getCheckout')->name('checkout')->middleware('auth');
 
@@ -129,4 +135,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 /* Order Begins */
     // View ordered orders
     Route::get('/viewOrders', 'OrderController@getOrders');
+
+    // Remove Item In Cart
+    Route::get('/remove/{id}', 'ProductController@getRemoveItem')->name('product.remove');
 /* Order Ends */
