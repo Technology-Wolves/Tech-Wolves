@@ -118,4 +118,10 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // To show added product of cart
     Route::get('/shopping-cart', 'ProductController@getCart')->name('product.shoppingCart');
+
+    //Checkout
+    Route::get('/checkout', 'ProductController@getCheckout')->name('checkout')->middleware('auth');
+
+    // Store in DB
+    Route::post('/checkout', 'ProductController@postCheckout')->name('checkout')->middleware('auth');
 /* Add to Cart Ends */

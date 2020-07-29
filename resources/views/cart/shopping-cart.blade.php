@@ -64,7 +64,7 @@
                 <div class="row-holder clearfix mb-3">
                     <div class="row float-right">
                         <div class="container">
-                            <button type="button" class="btn btn-primary"><i class="fab fa-opencart"></i> Checkout</button>
+                            <a href="{{ route('checkout') }}" class="btn btn-primary"><i class="fab fa-opencart"></i> Proceed Checkout</a>
                         </div>
                     </div>
                 </div>
