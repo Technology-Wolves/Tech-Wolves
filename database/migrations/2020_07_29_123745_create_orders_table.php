@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->text('address');
             $table->string('paymentType');
             $table->text('cart');
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('user_id')
