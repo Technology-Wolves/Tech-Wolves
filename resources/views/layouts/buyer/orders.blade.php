@@ -90,16 +90,16 @@
                                         <td>
                                             <strong class="text-capitalize">
                                                 @if($order->status === 'processing')
-                                                    <span class="badge badge-warning bg-orange" style="color: #fff !important;">{{$order->status}}</span>
+                                                    <p class="badge badge-warning bg-orange" style="color: #fff !important;">{{$order->status}}</p>
                                                 @endif
                                                 @if($order->status === 'order confirmed')
-                                                    <span class="badge badge-info">Order Confirmed</span>
+                                                    <p class="badge badge-info">Order Confirmed</p>
                                                 @endif
                                                 @if($order->status === 'shipped')
-                                                    <span class="badge badge-secondary">Shipped</span>
+                                                    <p class="badge badge-secondary">Shipped</p>
                                                 @endif
                                                 @if($order->status === 'delivered')
-                                                    <span class="badge badge-success">Delivered</span>
+                                                    <p class="badge badge-success">Delivered</p>
                                                 @endif
                                             </strong>
                                         </td>
