@@ -1,6 +1,46 @@
 @extends('layouts.dashboard.dashboardLayout')
 @section('title', 'View Orders')
 @section('main-section')
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            opacity: 0;
+            width: 220px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 3px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 0px;
+            left: -30px;
+            margin-left: -200px;
+            transition: all 0.5s ease-in;
+        }
+
+        .tooltip:hover .tooltiptext {
+            opacity: 1;
+        }
+
+        .tooltiptext:after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #000;
+            position: absolute;
+            left: 100%;
+            bottom: 10px;
+        }
+    </style>
     @if(Session::has('success-message'))
         <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('success-message') }}</p>
     @endif
@@ -48,11 +88,19 @@
                                         <td><strong>{{ $item['qty'] }} {{ $item['qty'] === 1 ? 'Unit' : 'Units' }}</strong></td>
                                         <td><strong>रू. {{$item['price']}}</strong></td>
                                         <td>
-                                            <strong>
-                                                <span class="badge badge-warning bg-orange" style="color: #fff !important;">Processing</span><br>
-                                                <span class="badge badge-info">Order Confirmed</span><br>
-                                                <span class="badge badge-secondary">Shipped</span><br>
-                                                <span class="badge badge-success">Delivered</span>
+                                            <strong class="text-capitalize">
+                                                @if($order->status === 'processing')
+                                                    <span class="badge badge-warning bg-orange" style="color: #fff !important;">{{$order->status}}</span>
+                                                @endif
+                                                @if($order->status === 'order confirmed')
+                                                    <span class="badge badge-info">Order Confirmed</span>
+                                                @endif
+                                                @if($order->status === 'shipped')
+                                                    <span class="badge badge-secondary">Shipped</span>
+                                                @endif
+                                                @if($order->status === 'delivered')
+                                                    <span class="badge badge-success">Delivered</span>
+                                                @endif
                                             </strong>
                                         </td>
                                     </tr>
@@ -64,9 +112,24 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row" colspan="10">
-                                            <a href="{{$order->id}}" class="btn btn-danger float-right" style="border: none;" onclick="return confirm ('Are you sure you want to delete?');"><i class="fas fa-trash-alt"></i> Cancel Order</a>
-                                        </th>
+                                        @if($order->status ==  'order confirmed' || $order->status == 'shipped')
+                                            <th scope="row" colspan="10">
+                                                <div class="tooltip-wrapper">
+                                                    <button class="btn btn-danger float-right tooltip" style="border: none;" disabled="disabled">
+                                                        <i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
+                                                        <span class="tooltiptext">Cannot cancel your order now.</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                        @elseif($order->status == 'delivered')
+                                            <th scope="row" colspan="10">
+                                                <a href="{{$order->id}}" class="btn btn-success float-right" style="border: none;"><i class="fas fa-receipt"></i>&nbsp;&nbsp;View Bill</a>
+                                            </th>
+                                        @else
+                                            <th scope="row" colspan="10">
+                                                <a href="{{$order->id}}" class="btn btn-danger float-right" style="border: none;" onclick="return confirm ('Are you sure you want to delete?');"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
+                                            </th>
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>

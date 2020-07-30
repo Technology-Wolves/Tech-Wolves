@@ -231,6 +231,7 @@ class ProductController extends Controller
         $order->address = $request->address;
         $order->paymentType = $request->paymentType;
         $order->cart = serialize($cart);
+        $order->status = "processing";
 
         Auth::user()->orders()->save($order);
 
