@@ -6,6 +6,10 @@
     #0652a7 - Blue (Light)
     #ffffff - White
 */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto.ttf') format('truetype'); (under the Apache Software License).
+}
 *{
     margin: 0;
     padding: 0;
@@ -32,6 +36,7 @@
     outline: 1px solid #0f60bd;
 }
 body{
+    font-family: Roboto;
 }
 #wrapper{
     overflow: hidden;
@@ -372,7 +377,7 @@ form.d-flex.newsletter-w3pvt {
 /* Contact Us Ends*/
 
 /* Product Page Show Product Begins */
-.card{
+.card-product{
     box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -386,9 +391,6 @@ form.d-flex.newsletter-w3pvt {
 }
 .card-body{
     background-color: #e8e8e8;
-}
-.image-holder{
-    background: rgba(0, 0, 0, 0.4);
 }
 .pImg {
     height: 200px;
@@ -518,3 +520,35 @@ table th, table td{
     float: right !important;
 }
 /* Admin View User Part Ends */
+
+/* Product Details Begins */
+.product-details-holder{
+    margin: 30px 0;
+}
+.product-details-holder .productImage{
+    border: transparent;
+}
+.product-details-left, .product-details-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.productImage>img{
+    max-height: 400px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.productImage>img:hover{
+    position: relative;
+    z-index: 100;
+    transform: scale(1.5, 1.5);
+    border: 5px solid rgba(0, 0, 0, 0.43);
+}
+.product-discounted-price{
+    font-size: 20px;
+}
+.product-original-price{
+    font-size: 14px;
+}
+/* Product Details Ends */

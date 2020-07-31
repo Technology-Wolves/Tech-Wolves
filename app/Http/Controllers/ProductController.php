@@ -240,4 +240,8 @@ class ProductController extends Controller
         Session::flash('alert-class', 'alert-success');
         return redirect('/products');
     }
+
+    public function productDetails(Product $product){
+        return view('/productDetails', ['product' => $product]);
+    }
 }
