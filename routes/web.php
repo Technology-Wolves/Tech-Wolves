@@ -62,6 +62,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Go to Product form
     Route::get('/addProduct', 'ProductController@create');
 
+    // Go to Product Details
+    Route::get('/productDetails/{product}', 'ProductController@productDetails');
+
     // Get added Products
     Route::get('/addedProducts', 'ProductController@getAddedProduct')->middleware('auth');
 
