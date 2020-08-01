@@ -169,6 +169,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/shortStatusPage') }}" class="nav-link {{ Request::path() === 'shortStatusPage' ? 'active': '' }}">
+                                <i class="fas fa-filter"></i>
+                                <p>
+                                    Short Order Status
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Admin Sidebar-menu ends -->

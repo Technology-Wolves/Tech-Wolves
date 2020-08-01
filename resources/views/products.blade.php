@@ -23,7 +23,7 @@
     </div>
     <div class="container mt-3 mb-5">
         <div class="row">
-        <form class="form-inline my-2 mb-4 w-100 search-form" action="{{url('/searchProduct')}}">
+            <form class="form-inline my-2 mb-4 w-100 search-form" action="{{url('/searchProduct')}}">
                 <select class="form-control search-categories"  name="categories">
                     <option selected value="">Select Category</option>
                     <option value="laptop">Laptop</option>
