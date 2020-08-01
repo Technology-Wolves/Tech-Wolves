@@ -150,4 +150,10 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Update Order
     Route::put('/updateOrder/{order}', 'OrderController@updateOrder')->name('updateOrder');
+
+    // Short order status page
+    Route::get('/shortStatusPage', 'OrderController@shortStatusPage')->name('shortStatusPage');
+
+    // Short order status
+    Route::post('/shortStatusResult', 'OrderController@shortStatus');
 /* Order Ends */

@@ -42,4 +42,27 @@ class OrderController extends Controller
         Session::flash('alert-class', 'alert-success');
         return redirect('/getAllOrders?page='.$page);
     }
+
+    public function shortStatusPage(){
+        $order = Order::get();
+        $order->transform(function ($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('layouts.admin.shortOrderStatus', compact('order'));
+    }
+
+    public function shortStatus(Request $request){
+        $status = $request->status;
+        $order = Order::where('status', $status)->get();
+        $order->transform(function ($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+
+//        dd($order);
+        return view('layouts.admin.shortOrderResult',[
+            'orders'=>$order
+        ]);
+    }
 }
