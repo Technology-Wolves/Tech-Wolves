@@ -161,6 +161,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/getAllOrders') }}" class="nav-link {{ Request::path() === 'getAllOrders' ? 'active': '' }}">
+                                <i class="fas fa-thumbs-up"></i>
+                                <p>
+                                     Approve Orders
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Admin Sidebar-menu ends -->
