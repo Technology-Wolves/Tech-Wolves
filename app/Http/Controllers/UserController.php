@@ -90,4 +90,12 @@ class UserController extends Controller
 
         return view('layouts.admin.userSearch', compact('users'));
     }
+
+    //Delete User
+    public function deleteUser($userId){
+        User::destroy($userId);
+        Session::flash('success-message', 'User Deleted Successfully!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/getAllUsers');
+    }
 }
