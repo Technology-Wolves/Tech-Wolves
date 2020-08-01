@@ -144,4 +144,10 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Remove Item In Cart
     Route::get('/remove/{id}', 'ProductController@getRemoveItem')->name('product.remove');
+
+    // View All Orders
+    Route::get('/getAllOrders', 'OrderController@getAllOrder');
+
+    // Update Order
+    Route::put('/updateOrder/{order}', 'OrderController@updateOrder')->name('updateOrder');
 /* Order Ends */
