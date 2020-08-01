@@ -63,7 +63,7 @@
                             <td>{{$user->regType}}</td>
                             <td>
                                 <a class="btn btn-primary" href="mailto: {{$user->email}}?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
-                                <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-danger" href="{{ route('deleteUser', $user->id) }}" onclick="return confirm ('Are you sure you want to delete user named \'{{$user->name}}\' ?');"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

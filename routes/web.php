@@ -113,6 +113,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Search User
     Route::get('/userSearch', 'UserController@userSearch');
 
+    // Delete User
+    Route::get('/deleteUser/{userId}', 'UserController@deleteUser')->name('deleteUser');
+
 /* Admin Ends */
 
 /* Add to Cart Begins */
