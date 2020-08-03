@@ -164,4 +164,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 /* Favourite Starts */
     // Add Favourites
     Route::get('/favourite/{productId}', 'FavouriteController@addFavourite');
+
+    // Get Favourites
+    Route::get('/favourites', 'FavouriteController@getFavourites');
 /* Favourite Ends */
