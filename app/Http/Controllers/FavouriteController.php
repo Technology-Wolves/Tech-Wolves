@@ -32,4 +32,11 @@ class FavouriteController extends Controller
 //        dd($favourites);
         return view('/layouts/buyer/favourites', compact('favourites'));
     }
+
+    public function removeFavourites($id){
+        Favourite::where('fav_id', $id)->delete();
+        Session::flash('success-message', '1 Favourites Removed!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/favourites');
+    }
 }
