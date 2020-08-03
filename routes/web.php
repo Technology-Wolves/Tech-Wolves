@@ -156,4 +156,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Short order status
     Route::post('/shortStatusResult', 'OrderController@shortStatus');
+
+    // Cancel Order
+    Route::get('/orderProduct/{id}', 'OrderController@cancelOrder');
 /* Order Ends */

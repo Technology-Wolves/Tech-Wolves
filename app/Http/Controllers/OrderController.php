@@ -65,4 +65,11 @@ class OrderController extends Controller
             'orders'=>$order
         ]);
     }
+
+    public function cancelOrder($orderId){
+        Order::destroy($orderId);
+        Session::flash('success-message', 'Order Cancelled!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/viewOrders');
+    }
 }

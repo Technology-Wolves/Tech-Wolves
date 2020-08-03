@@ -127,7 +127,7 @@
                                             </th>
                                         @else
                                             <th scope="row" colspan="10">
-                                                <a href="{{$order->id}}" class="btn btn-danger float-right" style="border: none;" onclick="return confirm ('Are you sure you want to delete?');"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
+                                                <a href="{{url('orderProduct')}}/{{$order->id}}" class="btn btn-danger float-right" style="border: none;" onclick="return confirm ('Are you sure you want to cancel your order?');"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
                                             </th>
                                         @endif
                                     </tr>
