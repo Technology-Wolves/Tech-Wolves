@@ -167,4 +167,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Get Favourites
     Route::get('/favourites', 'FavouriteController@getFavourites');
+
+    // Remove Favourites
+    Route::get('/favourites/{fav_id}', 'FavouriteController@removeFavourites');
 /* Favourite Ends */
