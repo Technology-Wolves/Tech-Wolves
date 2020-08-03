@@ -59,7 +59,7 @@
                             <table class="table table-bordered table-striped table-responsive" style="margin: 30px 0 60px;">
                                 <thead>
                                 <tr class="text-center">
-                                    <th colspan="9"><h2>Your Orders <i class="fab fa-opencart"></i></h2></th>
+                                    <th colspan="10"><h2>Your Orders <i class="fab fa-opencart"></i></h2></th>
                                 </tr>
                                 <tr class="text-center">
                                     <th scope="col">S.N</th>
