@@ -160,3 +160,8 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Cancel Order
     Route::get('/orderProduct/{id}', 'OrderController@cancelOrder');
 /* Order Ends */
+
+/* Favourite Starts */
+    // Add Favourites
+    Route::get('/favourite/{productId}', 'FavouriteController@addFavourite');
+/* Favourite Ends */

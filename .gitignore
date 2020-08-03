@@ -10,5 +10,4 @@
 # Homestead.yaml
 # npm-debug.log
 # yarn-error.log
- /public/uploads/productImage
- /public/uploads/profileImage
+ /public/uploads
