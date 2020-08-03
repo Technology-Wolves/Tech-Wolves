@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.dashboardLayout')
-@section('title', 'View Orders')
+@section('title', 'Approve Orders')
 @section('main-section')
     @if(Session::has('success-message'))
         <p class="container mt-3 alert col-md-7 text-center {{ Session::get('alert-class', 'alert-info') }}"><i class="fas fa-check-circle"></i> {{ Session::get('success-message') }}</p>

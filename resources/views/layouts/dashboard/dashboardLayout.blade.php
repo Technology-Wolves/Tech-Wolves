@@ -177,6 +177,22 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/favourites') }}" class="nav-link {{ Request::path() === ('favourites') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-heart"></i>
+                                <p>
+                                    Favourites
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/gallery.html" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Gallery
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Admin Sidebar-menu ends -->
@@ -226,6 +242,14 @@
                                 <i class="nav-icon fas fa-key"></i>
                                 <p>
                                     Change Password
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/favourites') }}" class="nav-link {{ Request::path() === ('favourites') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-heart"></i>
+                                <p>
+                                    Favourites
                                 </p>
                             </a>
                         </li>

@@ -244,7 +244,7 @@ class ProductController extends Controller
         Auth::user()->orders()->save($order);
 
         Session::forget('cart');
-        Session::flash('success-message', 'Checkout Successful!');
+        Session::flash('success-message', 'Checkout Successful, go to dashboard to track your delivery!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/products');
     }
