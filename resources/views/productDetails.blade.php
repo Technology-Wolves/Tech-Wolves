@@ -41,7 +41,7 @@
                     <p class="product-seller"><strong>Seller: {{$product->productOwner->name}}</strong></p>
                     <div class="product-button">
                         <a href="{{ route('product.addToCart', $product->id) }}" class="btn btn-secondary "><i class="fas fa-cart-plus add-to-cart text-white"></i> Add to Cart</a>
-                        <a href="" class="btn btn-secondary"><i class="fas fa-heart heart-favourite text-danger"></i> Favourite</a>
+                        <a href="{{ url('/favourite', $product->id) }}" class="btn btn-secondary"><i class="fas fa-heart heart-favourite text-danger"></i> Favourite</a>
                     </div>
                 </div>
             </div>
