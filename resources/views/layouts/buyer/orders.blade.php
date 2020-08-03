@@ -134,6 +134,10 @@
                                 </tbody>
                             </table>
                         @endforeach
+                        @empty($order)
+                            <p class="container mt-3 col-md-7 text-center bg-danger p-3" style="color: #fffa90 !important;">Sorry, no any orders found.
+                                <br>Please order any of our products to see in this section.</p>
+                        @endempty
                     </div>
                 </div>
             </div>
