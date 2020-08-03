@@ -220,6 +220,14 @@ class ProductController extends Controller
         if (!Session::has('cart')){
             return view('cart.shopping-cart');
         }
+        $request->validate([
+            'name' => ['required', 'string', 'max:25', 'regex:/(^([a-z A-Z]+)(\d+)?$)/u'],
+            'email' => 'regex:/^.+@.+$/i',
+            'telephone' => ['required', 'string', 'max:10'],
+            'address' => ['required', 'string', 'max:50'],
+            'paymentType'=>['required', 'string']
+        ]);
+
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 

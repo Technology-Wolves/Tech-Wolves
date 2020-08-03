@@ -57,8 +57,8 @@ class UserController extends Controller
     protected function updatePassword(Request $request, $userId){
         $request->validate([
             'oldPassword' => ['required', 'string'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'password_confirmation' => ['required', 'string', 'min:8']
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:6']
         ]);
 
         $user = User::find($userId);
