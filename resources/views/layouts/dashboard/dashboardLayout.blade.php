@@ -310,6 +310,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/favourites') }}" class="nav-link {{ Request::path() === ('favourites') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-heart"></i>
+                                <p>
+                                    Favourites
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Buyer Sidebar-menu ends -->

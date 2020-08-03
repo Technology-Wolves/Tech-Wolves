@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Favourite;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class FavouriteController extends Controller
@@ -20,5 +21,15 @@ class FavouriteController extends Controller
         Session::flash('success-message', 'Product Added To Favourites!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/productDetails/'.$productId);
+    }
+
+    public function getFavourites(){
+        $favourites = DB::table('favourites')
+            ->join('users', 'users.id', '=', 'favourites.userId')
+            ->join('products','products.id', '=', 'favourites.productId')
+            ->where('favourites.userId', Auth::user()->id)
+            ->get();
+//        dd($favourites);
+        return view('/layouts/buyer/favourites', compact('favourites'));
     }
 }
