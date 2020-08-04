@@ -17,10 +17,29 @@ class FavouriteController extends Controller
         $favourite->userId = $user->id;
         $favourite->productId = $productId;
 
-        $favourite->save();
-        Session::flash('success-message', 'Product Added To Favourites!');
-        Session::flash('alert-class', 'alert-success');
-        return redirect('/productDetails/'.$productId);
+        $match = DB::table('favourites')
+            ->where('userId', $user->id)
+            ->where('productId', $productId)
+            ->get();
+
+//        dd($match);
+//        print_r($match[0]->userId .'<br>' . $match[0]->productId );
+
+        if ($match->isEmpty()){
+            $favourite->save();
+            Session::flash('success-message', 'Product Added To Favourites!');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('/productDetails/'.$productId);
+        }
+
+        $matchedUserID = $match[0]->userId == Auth::user()->id;
+        $matchedProductID = $match[0]->productId == $productId;
+
+        if ($matchedUserID && $matchedProductID){
+            Session::flash('error-message', 'This product is already in your favourite list!');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('/productDetails/'.$productId);
+        }
     }
 
     public function getFavourites(){
