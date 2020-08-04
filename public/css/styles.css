@@ -552,3 +552,11 @@ table th, table td{
     font-size: 14px;
 }
 /* Product Details Ends */
+/* View Bills Begins */
+.infos{
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 18px;
+}
+/* View Bills Ends */

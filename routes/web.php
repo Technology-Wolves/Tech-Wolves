@@ -159,6 +159,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Cancel Order
     Route::get('/orderProduct/{id}', 'OrderController@cancelOrder');
+
+    // View Bill
+    Route::get('/viewBill/{order}', 'OrderController@viewBill');
 /* Order Ends */
 
 /* Favourite Starts */
