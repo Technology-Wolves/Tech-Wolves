@@ -303,7 +303,7 @@
                              with font-awesome or any other icon font library -->
                         <li class="nav-header">Buyer Features</li>
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link">
+                            <a href="{{ url('/home') }}" class="nav-link {{ Request::path() === 'home' ? 'active': '' }}">
                                 <i class="nav-icon fas fa-house-user"></i>
                                 <p>
                                     Home
