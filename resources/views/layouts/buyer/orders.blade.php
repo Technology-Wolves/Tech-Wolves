@@ -123,7 +123,7 @@
                                             </th>
                                         @elseif($order->status == 'delivered')
                                             <th scope="row" colspan="10">
-                                                <a href="{{$order->id}}" class="btn btn-success float-right" style="border: none;"><i class="fas fa-receipt"></i>&nbsp;&nbsp;View Bill</a>
+                                                <a href="{{url('/viewBill')}}/{{$order->id}}" class="btn btn-success float-right" style="border: none;"><i class="fas fa-receipt"></i>&nbsp;&nbsp;View Bill</a>
                                             </th>
                                         @else
                                             <th scope="row" colspan="10">

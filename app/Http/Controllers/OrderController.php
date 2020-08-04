@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -71,5 +72,15 @@ class OrderController extends Controller
         Session::flash('success-message', 'Order Cancelled!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/viewOrders');
+    }
+
+    public function viewBill($id){
+        $orders = Order::where('id', $id)->get();
+//        dd($orders);
+        $orders->transform(function ($orders, $key){
+            $orders->cart = unserialize($orders->cart);
+            return $orders;
+        });
+        return view('layouts.buyer.viewBill', ['orders'=>$orders]);
     }
 }
