@@ -95,11 +95,13 @@
                                             </select>
                                         </th>
                                         <th scope="row" colspan="3">
-                                            <div class="tooltip-wrapper">
+                                            @if($order->status == 'delivered')
+                                                <button href="{{url('/viewBill')}}/{{$order->id}}" class="btn btn-danger float-right" style="border: none;" disabled><i class="fas fa-receipt"></i>&nbsp;&nbsp;Product Delivered</button>
+                                            @else
                                                 <button class="btn btn-primary float-right" style="border: none;" >
                                                     <i class="fas fa-check"></i>&nbsp;&nbsp;Approve Order
                                                 </button>
-                                            </div>
+                                            @endif
                                         </th>
                                     </tr>
                                 </form>
