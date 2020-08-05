@@ -47,4 +47,41 @@
             </div>
         </div>
     </div>
+    <div class="product-comment bg-light pt-3 pb-1">
+        <h3 class="text-center text-capitalize pb-3" style="border-bottom: 2px solid #ddd;">Write a review and give us a rating...</h3>
+        <div class="container mt-3 mb-2 clearfix">
+            <form action="{{ url('/postRatings') }}" method="POST">
+                @csrf
+                <div class="form-group float-left col-lg-9  col-sm-12">
+                    <i class="fas fa-comments"></i>
+                    <label for="comment">Your honest comment.</label>
+                    <textarea class="form-control @error('comment') is-invalid @enderror" id="comment" rows="4" placeholder="Leave a comment." name="comment"></textarea>
+                    @error('comment')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group float-right col-lg-3 col-sm-12">
+                    <i class="fas fa-star"></i>
+                    <label for="rating-stars">Product Star Rating</label>
+                    <select class="form-control text-center mb-3  @error('stars') is-invalid @enderror" id="rating-stars" name="stars" style="margin: 10px 0">
+                        <option value=" ">Select Stars for rating</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+                    <button class="btn btn-primary  col-lg-12" type="submit">Submit <i class="far fa-paper-plane"></i></button>
+                    @error('stars')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <input type="hidden" name="productId" value="{{$product->id}}">
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
