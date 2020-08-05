@@ -63,7 +63,7 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     Route::get('/addProduct', 'ProductController@create');
 
     // Go to Product Details
-    Route::get('/productDetails/{product}', 'ProductController@productDetails');
+    Route::get('/productDetails/{product}/{rating}', 'ProductController@productDetails');
 
     // Get added Products
     Route::get('/addedProducts', 'ProductController@getAddedProduct')->middleware('auth');
@@ -85,6 +85,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
 
     // Product Review and Ratings
     Route::post('/postRatings', 'ProductController@addRatings')->middleware('auth');
+
+    // Go to Product Details
+//    Route::get('/productDetails/{product}', 'ProductController@viewRatings');
 
 /* Product routes ends */
 

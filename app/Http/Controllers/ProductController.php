@@ -10,6 +10,7 @@ use App\User;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -250,8 +251,24 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    public function productDetails(Product $product){
-        return view('/productDetails', ['product' => $product]);
+    public function productDetails($product, $productRating){
+        $product = Product::where('id', $product)->get();
+        $ratings = DB::table('ratings')
+            ->join('users', 'users.id', '=', 'ratings.user_id')
+            ->join('products', 'products.id', '=', 'ratings.product_id')
+            ->select(
+                'products.*',
+                'users.id AS userId',
+                'users.name AS userName',
+                'users.email AS userEmail',
+                'users.profileImage AS userImage',
+                'ratings.comment AS comment',
+                'ratings.stars AS stars'
+            )
+            ->where('ratings.product_id', $productRating)
+            ->get();
+        return view('/productDetails', ['product' => $product], ['ratings' => $ratings]);
+        dd($ratings);
     }
 
     // Product Review and Ratings
@@ -271,6 +288,6 @@ class ProductController extends Controller
         $ratings->save();
         Session::flash('success-message', 'Comment and Rating Posted!');
         Session::flash('alert-class', 'alert-success');
-        return redirect('/productDetails/'.$prodId);
+        return redirect('/productDetails/'.$prodId.'/'.$prodId);
     }
 }
