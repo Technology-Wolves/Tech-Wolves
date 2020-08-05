@@ -88,15 +88,18 @@
         </div>
     </div>
 
-        <div class="product-comment pt-3 pb-1">
-            <h3 class="text-center text-capitalize pt-3 pb-3">Product feedbacks and reviews</h3>
+    <div class="product-comment pt-3 pb-1">
+        <h3 class="text-center text-capitalize pt-3 pb-3">Product feedbacks and reviews</h3>
+        @if($ratings->isEmpty())
+            <p class="container mt-3 col-md-7 text-center bg-danger p-3 text-light">No any reviews. Be the first one to review this product.</p>
+        @else
             @foreach($ratings as $rating)
             <div class="container mt-3 mb-2 clearfix">
-                <img class="float-left" src="{{asset('uploads/profileImage/')}}/{{$rating->userImage}}" alt="Profile Image" style="width: 100px; height: 100px; margin-right: 20px; border-radius: 50%; box-shadow: 0px 5px 10px #4a4a4a; padding: 5px;">
+                <img class="float-left rating-profile-image" src="{{asset('uploads/profileImage/')}}/{{$rating->userImage}}" alt="Profile Image">
                 @if(\Illuminate\Support\Facades\Auth::user()->id === $rating->userId)
-                    <i class="fas fa-trash-alt float-right del-review" style="color: #949494; margin: 0px 20px 0px 0;"></i>
+                    <a href="{{ url('/deleteReview') }}/{{$product->id}}/{{$rating->r_id}}" onclick="return confirm ('Are you sure you want to delete your review?');"><i class="fas fa-trash-alt float-right del-review" style="color: #949494; margin: 0px 20px 0px 0;"></i></a>
                 @endif
-                <span class="form-text"><strong>{{$rating->userName}}</strong>&nbsp;&nbsp;<span class="text-secondary" style="font-size: 12px; color: #ddd">({{$rating->userEmail}})</span></span>
+                <span class="form-text"><strong>{{$rating->userName}}</strong>&nbsp;&nbsp;<span class="text-secondary rating-profile-email">({{$rating->userEmail}})</span></span>
                 <span class="float-left" style="font-size: 24px;">
                     @for($i = 1; $i<= $rating->stars; $i++)
                         <img src="{{ asset('/images/star.png') }}" height="25px" width="25px">
@@ -106,5 +109,6 @@
                 <hr>
             </div>
             @endforeach
-        </div>
+        @endif
+    </div>
 @endsection

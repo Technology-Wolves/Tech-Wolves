@@ -262,6 +262,7 @@ class ProductController extends Controller
                 'users.name AS userName',
                 'users.email AS userEmail',
                 'users.profileImage AS userImage',
+                'ratings.r_id AS r_id',
                 'ratings.comment AS comment',
                 'ratings.stars AS stars'
             )
@@ -289,5 +290,13 @@ class ProductController extends Controller
         Session::flash('success-message', 'Comment and Rating Posted!');
         Session::flash('alert-class', 'alert-success');
         return redirect('/productDetails/'.$prodId.'/'.$prodId);
+    }
+
+    // Delete Posted Review
+    public function deleteReview($productId, $id){
+        Rating::where('r_id', $id)->delete();
+        Session::flash('success-message', 'Review Deleted Successfully!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/productDetails'.'/'.$productId.'/'. $productId);
     }
 }
