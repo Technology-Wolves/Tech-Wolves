@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Rating;
 use App\User;
 use App\Order;
 use Illuminate\Http\Request;
@@ -251,5 +252,25 @@ class ProductController extends Controller
 
     public function productDetails(Product $product){
         return view('/productDetails', ['product' => $product]);
+    }
+
+    // Product Review and Ratings
+    public function addRatings(Request $request){
+        $request->validate([
+            'comment'=> ['required', 'max:5000'],
+            'stars' => 'required'
+        ]);
+        $ratings = new Rating();
+        $prodId = $request->productId;
+
+        $ratings->product_id = $request->productId;
+        $ratings->user_id = Auth::user()->id;
+        $ratings->comment = $request->comment;
+        $ratings->stars = $request->stars;
+
+        $ratings->save();
+        Session::flash('success-message', 'Comment and Rating Posted!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/productDetails/'.$prodId);
     }
 }

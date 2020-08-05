@@ -83,6 +83,9 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     //Product Search
     Route::get('/searchProduct', 'ProductController@searchProduct');
 
+    // Product Review and Ratings
+    Route::post('/postRatings', 'ProductController@addRatings')->middleware('auth');
+
 /* Product routes ends */
 
 /* Seller Profile Begins */
