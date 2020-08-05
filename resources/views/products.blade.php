@@ -57,7 +57,7 @@
                                 <strong>Seller: </strong>{{ \Illuminate\Support\Str::limit($product->productOwner->name, 10) }}
                             </p>
                             <div class="product-button-holders">
-                                <a href="{{ url('/productDetails', $product->id)}}" class="btn btn-primary custom-btn" style="border: none;">See More &raquo;</a>
+                                <a href="{{ url('/productDetails')}}/{{$product->id}}/{{$product->id}}" class="btn btn-primary custom-btn" style="border: none;">See More &raquo;</a>
                                 <a href="{{ route('product.addToCart', $product->id) }}"><i class="fas fa-cart-plus add-to-cart"></i></a>
                             </div>
                         </div>
