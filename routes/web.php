@@ -86,8 +86,8 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Product Review and Ratings
     Route::post('/postRatings', 'ProductController@addRatings')->middleware('auth');
 
-    // Go to Product Details
-//    Route::get('/productDetails/{product}', 'ProductController@viewRatings');
+    // Delete Product Review
+    Route::get('/deleteReview/{productId}/{reviewId}', 'ProductController@deleteReview');
 
 /* Product routes ends */
 
