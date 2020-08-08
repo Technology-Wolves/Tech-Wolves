@@ -28,6 +28,9 @@ class SubscriptionController extends Controller
         }
     }
     public function viewSubscribers(){
-        return view('layouts.admin.viewSubscribers');
+        $subscribers = Subscription::paginate(10);
+        return view('layouts.admin.viewSubscribers', [
+            'subscribers'=>$subscribers
+        ]);
     }
 }
