@@ -195,7 +195,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/viewSubscribers') }}" class="nav-link {{ Request::path() === ('viewSubscribers') ? 'active': '' }}">
-                                <i class="nav-icon fas fa-users"></i>
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     View Subscribers
                                 </p>
