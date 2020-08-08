@@ -193,6 +193,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/viewSubscribers') }}" class="nav-link {{ Request::path() === ('viewSubscribers') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    View Subscribers
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- Admin Sidebar-menu ends -->

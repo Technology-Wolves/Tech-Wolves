@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class SubscriptionController extends Controller
 {
-    protected function store(){
+    public function store(){
 
 //        dump(\request()->all());
 
@@ -26,6 +26,8 @@ class SubscriptionController extends Controller
             Session::flash('alert-class', 'alert-danger');
             return redirect('/');
         }
-
+    }
+    public function viewSubscribers(){
+        return view('layouts.admin.viewSubscribers');
     }
 }

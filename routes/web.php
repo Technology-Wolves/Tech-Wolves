@@ -41,8 +41,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Subscriptions begins
 
-// Store into database
-Route::post('/subscriptions', 'SubscriptionController@store');
+    // Store into database
+    Route::post('/subscriptions', 'SubscriptionController@store');
+
+    // View Subscribers
+    Route::get('/viewSubscribers', 'SubscriptionController@viewSubscribers');
 
 // Subscriptions ends
 
