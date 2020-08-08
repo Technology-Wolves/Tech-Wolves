@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
-    protected function create()
+    public function create()
     {
         // Show a view to create a new resource
         return view('contacts');
     }
-    protected function store(){
+    public function store(){
         //dump(request()->all());
         $validatedAttributes = request()->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -28,5 +28,11 @@ class ContactController extends Controller
         Session::flash('alert-class', 'alert-success');
         return redirect('/contacts');
 
+    }
+    public function getAllContacts(){
+        $contacts = Contact::paginate(5);
+        return view('layouts.admin.viewContacts', [
+            'contacts'=>$contacts
+        ]);
     }
 }

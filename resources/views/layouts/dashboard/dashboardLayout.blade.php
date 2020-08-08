@@ -163,7 +163,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/getAllOrders') }}" class="nav-link {{ Request::path() === 'getAllOrders' ? 'active': '' }}">
-                                <i class="fas fa-thumbs-up"></i>
+                                <i class="nav-icon fas fa-thumbs-up"></i>
                                 <p>
                                      Approve Orders
                                 </p>
@@ -171,7 +171,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/shortStatusPage') }}" class="nav-link {{ Request::path() === 'shortStatusPage' ? 'active': '' }}">
-                                <i class="fas fa-filter"></i>
+                                <i class="nav-icon fas fa-filter"></i>
                                 <p>
                                     Short Order Status
                                 </p>
@@ -186,10 +186,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
+                            <a href="{{ url('/viewContacts') }}" class="nav-link {{ Request::path() === ('viewContacts') ? 'active': '' }}">
+                                <i class="nav-icon fas fa-id-card"></i>
                                 <p>
-                                    Gallery
+                                    View Contacts
                                 </p>
                             </a>
                         </li>
@@ -252,43 +252,6 @@
                                     Favourites
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Gallery
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-envelope"></i>
-                                <p>
-                                    Mailbox
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inbox</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Compose</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Read</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>
