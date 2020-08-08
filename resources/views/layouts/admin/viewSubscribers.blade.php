@@ -35,32 +35,24 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php $number = 1; @endphp
+                        @foreach($subscribers as $subscriber)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>saugat@gmail.com</td>
+                                <th scope="row">{{$number++}}</th>
+                                <td>{{$subscriber->email}}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="mailto: saugat@gmail.com?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
-                                    <a class="btn btn-danger" href="#" onclick="return confirm ('Are you sure you want to delete user named?');"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-primary" href="mailto: {{ $subscriber->email }}?subject=Subscription Email."><i class="fas fa-envelope"></i></a>
+                                    <a class="btn btn-danger" href="{{url('/deleteSubscription', $subscriber->id)}}" onclick="return confirm ('Are you sure you want to delete?');"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>devish@gmail.com</td>
-                                <td>
-                                    <a class="btn btn-primary" href="mailto: devish@gmail.com?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
-                                    <a class="btn btn-danger" href="#" onclick="return confirm ('Are you sure you want to delete user named?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>anish@gmail.com</td>
-                                <td>
-                                    <a class="btn btn-primary" href="mailto: anish@gmail.com?subject=Hello from the techwolves."><i class="fas fa-envelope"></i></a>
-                                    <a class="btn btn-danger" href="#" onclick="return confirm ('Are you sure you want to delete user named?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
+                    {{--Pagination Begins--}}
+                    <div class="paginations">
+                        {{ $subscribers->links() }}
+                    </div>
+                    {{--Pagination Ends--}}
                 </div>
             </div>
             <!-- /.container-fluid -->
