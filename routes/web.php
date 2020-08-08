@@ -55,6 +55,8 @@ Route::post('/subscriptions', 'SubscriptionController@store');
     // Store into databse
     Route::post('/contacts', 'ContactController@store');
 
+    // View All contacts
+    Route::get('/viewContacts', 'ContactController@getAllContacts');
 // Contacts routes ends
 
 /* Product routes begins */
