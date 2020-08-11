@@ -20,4 +20,17 @@ class RegisterTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
     }
+
+    /** @test */
+
+    public function user_cannot_view_a_register_form_when_authenticated()
+    {
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get('/register');
+
+        $response->assertRedirect('/home');
+    }
+
+
 }
