@@ -32,5 +32,26 @@ class RegisterTest extends TestCase
         $response->assertRedirect('/home');
     }
 
+     /** @test */
+
+     public function user_can_register_with_valid_input()
+    {
+
+        $response = $this->from('/register')->post('/register', [
+            'name' => 'Users Name',
+            'email' => 'User@gmail.com',
+            'telephone' => '9849123456',
+            'address' => 'Kathmandu',
+            'gender' => 'female',
+            'password' => 'user123',
+            'password_confirmation' => 'user123',
+            'regType' => 'buyer',
+            'profileImage' => 'default.png'
+        ]);
+        // $response->assertStatus(200);
+        $response->assertRedirect('/home');
+        $this->assertAuthenticated();
+    }
+
 
 }
