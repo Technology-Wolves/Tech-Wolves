@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class RegisterTest extends TestCase
 {
-   
+    use RefreshDatabase;
     /** @test */
     public function register_displays_the_register_form()
     {
         $response = $this->get('/register');
-        
+
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
     }
@@ -54,12 +54,12 @@ class RegisterTest extends TestCase
     }
 
      /** @test */
-     
+
      public function user_cannot_register_with_invalid_email()
      {
          $response = $this->from('/register')->post('/register', [
             'name' => 'Users name',
-            'email' => 'User@gmail.com',
+            'email' => 'wrong_email',
             'telephone' => '9849123456',
             'address' => 'locationhere',
             'gender' => 'male',
@@ -68,7 +68,7 @@ class RegisterTest extends TestCase
             'regType' => 'buyer',
             'profileImage' => 'default.png'
          ]);
- 
+
          $response->assertRedirect('/register');
          $response->assertSessionHasErrors('email');
          $this->assertTrue(session()->hasOldInput('email'));
@@ -103,7 +103,7 @@ class RegisterTest extends TestCase
      public function user_cannot_register_with_special_character_and_numbers_in_name()
      {
          $response = $this->from('/register')->post('register', [
-             'name' => 'User name',
+             'name' => 'User name @',
              'email' => 'User8@gmail.com',
              'telephone' => '9849123456',
              'address' => 'locationhere',
@@ -113,11 +113,34 @@ class RegisterTest extends TestCase
              'regType' => 'buyer',
              'profileImage' => 'default.png'
          ]);
- 
+
          $response->assertRedirect('/register');
          $response->assertSessionHasErrors('name');
          $this->assertTrue(session()->hasOldInput('name'));
          $this->assertFalse(session()->hasOldInput('password'));
          $this->assertGuest();
      }
+
+    /** @test */
+    public function telephone_no_must_be_ten_character()
+    {
+        $response = $this->from('/register')->post('register', [
+            'name' => 'User name',
+            'email' => 'User@gmail.com',
+            'telephone' => '12345678901',
+            'address' => 'locationhere',
+            'gender' => 'male',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'regType' => 'buyer',
+            'profileImage' => 'default.png'
+        ]);
+
+        $response->assertRedirect('/register');
+        $response->assertSessionHasErrors('telephone');
+        $this->assertTrue(session()->hasOldInput('telephone'));
+        $this->assertFalse(session()->hasOldInput('password'));
+        $this->assertGuest();
+    }
+
 }
