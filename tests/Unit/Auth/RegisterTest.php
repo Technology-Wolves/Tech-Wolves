@@ -53,5 +53,28 @@ class RegisterTest extends TestCase
         $this->assertAuthenticated();
     }
 
+     /** @test */
+     
+     public function user_cannot_register_with_invalid_email()
+     {
+         $response = $this->from('/register')->post('/register', [
+            'name' => 'Users name',
+            'email' => 'User@gmail.com',
+            'telephone' => '9849123456',
+            'address' => 'locationhere',
+            'gender' => 'male',
+            'password' => 'user123',
+            'password_confirmation' => 'user123',
+            'regType' => 'buyer',
+            'profileImage' => 'default.png'
+         ]);
+ 
+         $response->assertRedirect('/register');
+         $response->assertSessionHasErrors('email');
+         $this->assertTrue(session()->hasOldInput('email'));
+         $this->assertFalse(session()->hasOldInput('password'));
+         $this->assertGuest();
+     }
+
 
 }
