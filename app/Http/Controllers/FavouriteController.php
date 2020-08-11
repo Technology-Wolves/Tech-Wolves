@@ -29,7 +29,7 @@ class FavouriteController extends Controller
             $favourite->save();
             Session::flash('success-message', 'Product Added To Favourites!');
             Session::flash('alert-class', 'alert-success');
-            return redirect('/productDetails/'.$productId);
+            return redirect('/productDetails/'.$productId.'/'.$productId);
         }
 
         $matchedUserID = $match[0]->userId == Auth::user()->id;
