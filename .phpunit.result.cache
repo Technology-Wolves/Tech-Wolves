@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":202:{a:2:{s:7:"defects";a:1:{s:65:"Tests\Unit\Auth\RegisterTest::register_displays_the_register_form";i:3;}s:5:"times";a:1:{s:65:"Tests\Unit\Auth\RegisterTest::register_displays_the_register_form";d:0.257;}}}
