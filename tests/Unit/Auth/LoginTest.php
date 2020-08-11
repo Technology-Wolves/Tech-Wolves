@@ -46,4 +46,24 @@ class LoginTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
+    /** @test */
+    public function user_cannot_login_with_invalid_email()
+    {
+        $user = factory(User::class)->create([
+            'email' => 'user1@gmail.com',
+            'password' => bcrypt($password = 'anything')
+        ]);
+
+        $response = $this->from('/login')->post('/login', [
+            'email' => 'wrong_email',
+            'password' => 'anything'
+        ]);
+
+        $response->assertRedirect('/login');
+        $response->assertSessionHasErrors('email');
+        $this->assertTrue(session()->hasOldInput('email'));
+        $this->assertFalse(session()->hasOldInput('password'));
+        $this->assertGuest();
+    }
+
 }
