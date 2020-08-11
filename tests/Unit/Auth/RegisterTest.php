@@ -76,5 +76,26 @@ class RegisterTest extends TestCase
          $this->assertGuest();
      }
 
+     /** @test */
+    public function user_cannot_register_with_mismatched_password()
+    {
+        $response = $this->from('/register')->post('register', [
+            'name' => 'Users name',
+            'email' => 'User@gmail.com',
+            'telephone' => '9849123456',
+            'address' => 'locationhere',
+            'gender' => 'male',
+            'password' => 'password',
+            'password_confirmation' => 'wrong_password',
+            'regType' => 'buyer',
+            'profileImage' => 'default.png'
+        ]);
 
+        $response->assertRedirect('/register');
+        $response->assertSessionHasErrors('password');
+        $this->assertTrue(session()->hasOldInput('name'));
+        $this->assertTrue(session()->hasOldInput('email'));
+        $this->assertFalse(session()->hasOldInput('password'));
+        $this->assertGuest();
+    }
 }
