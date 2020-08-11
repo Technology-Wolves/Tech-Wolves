@@ -98,4 +98,26 @@ class RegisterTest extends TestCase
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
+
+     /** @test */
+     public function user_cannot_register_with_special_character_and_numbers_in_name()
+     {
+         $response = $this->from('/register')->post('register', [
+             'name' => 'User name',
+             'email' => 'User8@gmail.com',
+             'telephone' => '9849123456',
+             'address' => 'locationhere',
+             'gender' => 'male',
+             'password' => 'password',
+             'password_confirmation' => 'password',
+             'regType' => 'buyer',
+             'profileImage' => 'default.png'
+         ]);
+ 
+         $response->assertRedirect('/register');
+         $response->assertSessionHasErrors('name');
+         $this->assertTrue(session()->hasOldInput('name'));
+         $this->assertFalse(session()->hasOldInput('password'));
+         $this->assertGuest();
+     }
 }
