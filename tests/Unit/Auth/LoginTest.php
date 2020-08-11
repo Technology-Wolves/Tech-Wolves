@@ -19,4 +19,14 @@ class LoginTest extends TestCase
         $response->assertSuccessful();
         $response->assertViewIs('auth.login');
     }
+
+    /** @test */
+    public function user_cannot_view_a_login_form_when_authenticated()
+    {
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get('/login');
+
+        $response->assertRedirect('/home');
+    }
 }
