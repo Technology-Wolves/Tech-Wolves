@@ -38,7 +38,7 @@ class FavouriteController extends Controller
         if ($matchedUserID && $matchedProductID){
             Session::flash('error-message', 'This product is already in your favourite list!');
             Session::flash('alert-class', 'alert-danger');
-            return redirect('/productDetails/'.$productId);
+            return redirect('/productDetails/'.$productId.'/'.$productIdgit);
         }
     }
 
