@@ -29,4 +29,21 @@ class LoginTest extends TestCase
 
         $response->assertRedirect('/home');
     }
+
+    /** @test */
+    public function user_can_login_with_correct_credentials()
+    {
+        $user = factory(User::class)->create([
+            'password' => bcrypt($password = 'password'),
+        ]);
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => $password,
+        ]);
+
+        $response->assertRedirect('/home');
+        $this->assertAuthenticatedAs($user);
+    }
+
 }
