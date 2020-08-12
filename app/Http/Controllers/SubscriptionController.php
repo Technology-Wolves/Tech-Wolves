@@ -33,4 +33,10 @@ class SubscriptionController extends Controller
             'subscribers'=>$subscribers
         ]);
     }
+    public function deleteSubscription($id){
+        Subscription::where('id', $id)->delete();
+        Session::flash('success-message', '1 Subscriptions deleted!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/viewSubscribers');
+    }
 }
