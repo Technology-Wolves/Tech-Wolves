@@ -35,4 +35,10 @@ class ContactController extends Controller
             'contacts'=>$contacts
         ]);
     }
+    public function deleteContacts($id){
+        Contact::where('id', $id)->delete();
+        Session::flash('success-message', '1 Contacts Removed!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('/viewContacts');
+    }
 }
