@@ -60,6 +60,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
     // View All contacts
     Route::get('/viewContacts', 'ContactController@getAllContacts');
+
+    // Delete Contacts
+    Route::get('/deleteContacts/{id}', 'ContactController@deleteContacts');
 // Contacts routes ends
 
 /* Product routes begins */
