@@ -35,4 +35,32 @@ class ContactTest extends TestCase
         $response->assertRedirect('/contacts');
         $this->assertGuest();
     }
+
+    /** @test */
+    public function empty_field_validation()
+    {
+        $response = $this->post('/contacts', [
+            'name' => '',
+            'email' => 'Saugat@gmail.com',
+            'subject' => 'Subject Arise Here...',
+            'message' => 'Message Arise Here',
+        ]);
+
+        $response->assertSessionHasErrors('name');
+
+    }
+
+    /** @test */
+    public function email_validation()
+    {
+        $response = $this->post('/contacts', [
+            'name' => 'Deepak',
+            'email' => 'invalid_email',
+            'subject' => 'Subject Arise Here...',
+            'message' => 'Message Arise Here',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+        $this->assertGuest();
+    }
 }
