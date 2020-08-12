@@ -18,4 +18,21 @@ class ContactTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('contacts');
     }
+
+    /** @test */
+    public function user_can_contact_with_the_owners()
+    {
+        $this->withoutExceptionHandling();
+
+        $response = $this->post('/contacts', [
+            'name' => 'Users Name',
+            'email' => 'User@gmail.com',
+            'subject' => 'Subject Arise Here...',
+            'message' => 'Message Arise Here',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/contacts');
+        $this->assertGuest();
+    }
 }
