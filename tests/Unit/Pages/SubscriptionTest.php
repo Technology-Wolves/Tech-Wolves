@@ -23,6 +23,16 @@ class SubscriptionTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/');
         $this->assertGuest();
+    }
+
+    /** @test */
+    public function user_cannot_subscribe_with_empty_form()
+    {
+        $response = $this->post('/subscriptions', [
+            'email' => '',
+        ]);
+
+        $response->assertSessionHasErrors('email');
 
     }
 }
