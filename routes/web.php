@@ -47,6 +47,9 @@ Route::get('/home', 'HomeController@index')->name('home');
     // View Subscribers
     Route::get('/viewSubscribers', 'SubscriptionController@viewSubscribers');
 
+    // Delete Subscribers
+    Route::get('/deleteSubscription/{id}', 'SubscriptionController@deleteSubscription');
+
 // Subscriptions ends
 
 
