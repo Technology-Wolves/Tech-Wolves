@@ -35,4 +35,19 @@ class SubscriptionTest extends TestCase
         $response->assertSessionHasErrors('email');
 
     }
+
+    /** @test */
+    public function same_user_cannot_subscribe_one_or_more_times()
+    {
+        $user = factory(Subscription::class)->create([
+            'email' => $email = 'User@gmail.com',
+        ]);
+
+        $response = $this->post('/subscriptions', [
+            'email' => $email,
+        ]);
+
+        $response->assertSessionHasErrors('email');
+
+    }
 }
