@@ -31,4 +31,20 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('layouts.seller.products.create');
     }
+
+    /** @test */
+    public function unauthenticated_users_cannot_create_a_new_product()
+    {
+        //Given we have a task object
+        $product = factory('App\Product')->make();
+
+        //When unauthenticated user submits post request to create task endpoint
+        // He should be redirected to home page
+        $this->post('/addProduct',$product->toArray())
+            ->assertRedirect('/');
+    }
+
+
+
+
 }
