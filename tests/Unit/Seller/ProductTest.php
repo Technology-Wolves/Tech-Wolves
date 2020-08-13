@@ -66,6 +66,91 @@ class ProductTest extends TestCase
     }
 
 
+    /** @test */
+    public function a_product_requires_a_product_name(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'productName' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('productName');
+    }
+
+    /** @test */
+    public function a_product_requires_a_product_description(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'productDescription' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('productDescription');
+    }
+
+    /** @test */
+    public function a_product_requires_a_product_original_price(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'orginalPrice' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('orginalPrice');
+    }
+
+
+    /** @test */
+    public function a_product_requires_a_product_discounted_rate(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'discountRate' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('discountRate');
+    }
+
+    /** @test */
+    public function a_product_requires_a_product_categories(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'categories' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('categories');
+    }
+
+    /** @test */
+    public function a_product_requires_a_product_image(){
+
+        $this->actingAs(factory('App\User')->create());
+
+        $task = factory('App\Product')->make(
+            [
+                'productImage' => null
+            ]);
+
+        $this->post('/addProduct',$task->toArray())
+            ->assertSessionHasErrors('productImage');
+    }
+
 
 
 }
