@@ -45,7 +45,7 @@
                                         <small class="form-text card-text productDesc mb-4">Discounted Price: <strong>रू {{$favourite->discountedPrice}}</strong></small>
 
                                         <span class="clearfix">
-                                            <a href="{{ url('/productDetails', $favourite->id)}}" class="btn btn-primary float-left"><i class="fas fa-angle-double-right"></i> See More</a>
+                                            <a href="{{ url('/productDetails')}}/{{$favourite->id}}/{{$favourite->id}}" class="btn btn-primary float-left"><i class="fas fa-angle-double-right"></i> See More</a>
                                             <a href="{{ url('/favourites',$favourite->fav_id) }}" class="btn btn-danger float-right" onclick="return confirm ('Are you sure you want to remove?');"><i class="fas fa-trash-alt"></i> Remove</a>
                                         </span>
                                     </div>

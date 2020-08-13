@@ -29,7 +29,7 @@ class FavouriteController extends Controller
             $favourite->save();
             Session::flash('success-message', 'Product Added To Favourites!');
             Session::flash('alert-class', 'alert-success');
-            return redirect('/productDetails/'.$productId);
+            return redirect('/productDetails/'.$productId.'/'.$productId);
         }
 
         $matchedUserID = $match[0]->userId == Auth::user()->id;
@@ -38,7 +38,7 @@ class FavouriteController extends Controller
         if ($matchedUserID && $matchedProductID){
             Session::flash('error-message', 'This product is already in your favourite list!');
             Session::flash('alert-class', 'alert-danger');
-            return redirect('/productDetails/'.$productId);
+            return redirect('/productDetails/'.$productId.'/'.$productId);
         }
     }
 

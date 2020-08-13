@@ -36,7 +36,7 @@
                         <p class="lead text-justify">{!! $contact->message !!}</p>
                         <p class="lead float-right mt-4">
                             <a class="btn btn-primary" href="mailto: {{$contact->email}}?subject=Hello from the techwolves.">Reply <i class="fas fa-reply"></i></a>
-                            <a class="btn btn-danger text-light" href="{!! url('/deleteContacts', $contact->id) !!}">Delete <i class="fas fa-trash-alt"></i></a>
+                            <a class="btn btn-danger text-light" href="{!! url('/deleteContacts', $contact->id) !!}" onclick="return confirm('Are you sure you want to delete?')">Delete <i class="fas fa-trash-alt"></i></a>
                         </p>
                     </div>
                     @endforeach
