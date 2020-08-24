@@ -96,8 +96,10 @@
             @foreach($ratings as $rating)
             <div class="container mt-3 mb-2 clearfix">
                 <img class="float-left rating-profile-image" src="{{asset('uploads/profileImage/')}}/{{$rating->userImage}}" alt="Profile Image">
-                @if(\Illuminate\Support\Facades\Auth::user()->id === $rating->userId)
-                    <a href="{{ url('/deleteReview') }}/{{$product->id}}/{{$rating->r_id}}" onclick="return confirm ('Are you sure you want to delete your review?');"><i class="fas fa-trash-alt float-right del-review" style="color: #949494; margin: 0px 20px 0px 0;"></i></a>
+                @if(Auth::check())
+                    @if(\Illuminate\Support\Facades\Auth::user()->id === $rating->userId)
+                        <a href="{{ url('/deleteReview') }}/{{$product->id}}/{{$rating->r_id}}" onclick="return confirm ('Are you sure you want to delete your review?');"><i class="fas fa-trash-alt float-right del-review" style="color: #949494; margin: 0px 20px 0px 0;"></i></a>
+                    @endif
                 @endif
                 <span class="form-text"><strong>{{$rating->userName}}</strong>&nbsp;&nbsp;<span class="text-secondary rating-profile-email">({{$rating->userEmail}})</span></span>
                 <span class="float-left" style="font-size: 24px;">
